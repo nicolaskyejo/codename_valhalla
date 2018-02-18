@@ -1,4 +1,3 @@
-
 package blackjack;
 
 import java.util.*;
@@ -7,15 +6,9 @@ import javax.swing.*;
 /*
  *@author Vladimir,Merja,Ville,Nicolas
  */
-
 public class License {
 
-    static Scanner lukija = new Scanner (System.in);
-    
-    public static void main(String[] args)   {
-        
-        // Muutujat
-        String vastaus;
-        //  vastaus = JOptionPane.showInputDialog(" ");
-    }
+  public String License() {
+    return "This game is a first year school project done in spring 2018, the code is released under GPL v3";
+  }
 }
