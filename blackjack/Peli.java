@@ -13,11 +13,12 @@ public class Peli {
 
   private String vastaus;
 
-  public void Alus() {
+  public String Alus() {
 
     JOptionPane.showMessageDialog(null, "This is a blackjack game."
             + " The aim of this game is to hit 21 also known as blackjack\nAll players start with 500€");
     vastaus = JOptionPane.showInputDialog("What is your player name?");
+    return vastaus;
   }
 
 }

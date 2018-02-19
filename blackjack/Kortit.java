@@ -12,11 +12,4 @@ Tämä on missa kokeleetan kortit grafiika homat
  */
 public class Kortit {
 
-  static Scanner lukija = new Scanner(System.in);
-
-  public static void main(String[] args) {
-
-    //testi1324567
-    //Hello Ville
-  }
 }
