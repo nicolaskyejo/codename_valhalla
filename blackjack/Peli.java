@@ -1,21 +1,24 @@
-
 package blackjack;
 
-import java.util.*;
 import javax.swing.*;
 
 /*
- *@author Vladimir,Merja,Ville,Nicolas
+Tämä on meijan peli grafiika, siis GUI tai View(MVC modeli)
  */
 
+ /*
+ *@author Vladimir,Merja,Ville,Nicolas
+ */
 public class Peli {
 
-    static Scanner lukija = new Scanner (System.in);
-    
-    public static void main(String[] args)   {
-        
-        // Muutujat
-        String vastaus;
-        //  vastaus = JOptionPane.showInputDialog(" ");
-    }
+  private String vastaus;
+
+  public String Alus() {
+
+    JOptionPane.showMessageDialog(null, "This is a blackjack game."
+            + " The aim of this game is to hit 21 also known as blackjack\nAll players start with 500€");
+    vastaus = JOptionPane.showInputDialog("What is your player name?");
+    return vastaus;
+  }
+
 }
