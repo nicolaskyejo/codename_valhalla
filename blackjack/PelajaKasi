@@ -12,20 +12,38 @@ import javax.swing.*;
  */
 public class PelajaKasi {
 
-  //muuttujat
-  int ens, toinen;
-  
-  //konstruktori ominaisuus
+ //konstruktori ominaisuus
   PelajaKasi() {
     ens = RandomCards.getKortti();
     toinen = RandomCards.getKortti();
   }
+
+  //muuttujat
+  int ens, toinen;
   
+  //esittelen HashMap rakenteen
+  Map<Integer, String> kortit; // Integer - ens, toinen kortti ja ..., String - kortti 
+  
+  //luodaan HashMap-rakenne
+  kortit = new HashMap();
+  
+  //lisään rakennteeseen kortti
+   kortit.put(1, ens);
+   kortit.put(2, toinen);
+   
+   //kortit summa, tarkastuksen varten
+   for (int i : kortit) {
+   int pelajaSumma = kortit.get(i);
+   }
+
   public void nayta() {
-    kortti = RandomCards.getKortti();
-  }
-  
-  
+    if (pelajaSumma > 21) {
+     //ei palauttaa mitään
+    } else {
+     kortit.put(kortit.get(vimeinen) + 1, RandomCards.getKortti());
+     }
+   }
+     
 
 
 }
