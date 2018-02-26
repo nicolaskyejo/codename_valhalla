@@ -11,36 +11,37 @@ import javax.swing.*;
  *@author Vladimir,Merja,Ville,Nicolas
  */
 public class PelajaKasi {
-
- //konstruktori ominaisuus
+  
+  //esittelen ArrayList rakenteen
+  ArrayList<Integer> kortit; // Integer - ens, toinen kortti ja ...
+  
+  //luodaan ArrayList-rakenne
+  kortit = new ArrayList();
+  
+  //konstruktori ominaisuus
   PelajaKasi() {
-    ens = RandomCards.getKortti();
-    toinen = RandomCards.getKortti();
+    int ens = RandomCards.getKortti();
+    int toinen = RandomCards.getKortti();
+  
+  //lisään rakennteeseen oletukseksi 2 kortit
+    kortit.add(ens);
+    kortit.add(toinen);
   }
-
-  //muuttujat
-  int ens, toinen;
   
-  //esittelen HashMap rakenteen
-  Map<Integer, String> kortit; // Integer - ens, toinen kortti ja ..., String - kortti 
-  
-  //luodaan HashMap-rakenne
-  kortit = new HashMap();
-  
-  //lisään rakennteeseen kortti
-   kortit.put(1, ens);
-   kortit.put(2, toinen);
-   
-   //kortit summa, tarkastuksen varten
-   for (int i : kortit) {
-   int pelajaSumma = kortit.get(i);
+  //kortit summa
+  int summa = 0;
+  public void pelajaSumma() {
+   for (int i = 0; i < kortit.size(); i++) {
+    summa = summa + kortit.get(i);
    }
+   
+  }
 
   public void nayta() {
     if (pelajaSumma > 21) {
      //ei palauttaa mitään
     } else {
-     kortit.put(kortit.get(vimeinen) + 1, RandomCards.getKortti());
+     kortit.add(kortit.get(kortit.size()) + 1, RandomCards.getKortti());
      }
    }
      
