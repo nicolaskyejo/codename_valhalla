@@ -1,2 +1,3 @@
 # codename_valhalla
-school_project
+
+Java school project written in Java. Includes only source files.
