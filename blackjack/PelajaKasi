@@ -1,0 +1,31 @@
+package blackjack;
+
+import java.util.*;
+import javax.swing.*;
+
+/*
+
+ */
+
+ /*
+ *@author Vladimir,Merja,Ville,Nicolas
+ */
+public class PelajaKasi {
+
+  //muuttujat
+  int ens, toinen;
+  
+  //konstruktori ominaisuus
+  PelajaKasi() {
+    ens = RandomCards.getKortti();
+    toinen = RandomCards.getKortti();
+  }
+  
+  public void nayta() {
+    kortti = RandomCards.getKortti();
+  }
+  
+  
+
+
+}
