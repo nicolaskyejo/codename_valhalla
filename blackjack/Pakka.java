@@ -7,9 +7,7 @@ import java.util.ArrayList;
  * @author ville
  */
 public class Pakka {
-    public static void main(String[] args) {
-        
-    }
+
     private ArrayList<Kortti> pakka = new ArrayList<>();
     
     public Pakka(){
