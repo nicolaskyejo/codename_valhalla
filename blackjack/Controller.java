@@ -17,8 +17,8 @@ public class Controller {
 
     // Muutujat 
     String nimi;
-    long score;  // Luulen että score voisi ola raha mikä käytäjällä on jaljella x 10 es. 300€ x10 = 3000
-    int raha;
+    int score;  
+    int raha=500;
     
     //  Oliot
     Peli peliobjeekti = new Peli();
@@ -31,6 +31,8 @@ public class Controller {
     
     
     // End
-   // score = raha * 10;
+    score = raha * 10;   // score formula
+    nimi_ja_score.checkHighScore(score, nimi);  // katso onko score hyvä 
+    nimi_ja_score.showHighScore();       // näytä kaikki scoret
   }
 }
