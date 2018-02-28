@@ -18,13 +18,13 @@ public class Testiluokka {
         pelaaja.hit(peliPakka);
         pelaaja.hit(peliPakka);
         
-        System.out.println("Pelaajan käsi: " + pelaaja.toString());
+        System.out.println("Pelaajan käsi: " + pelaaja.toString() + "\n" + "Korttien arvo: " + pelaaja.korttienPisteet());
         
         Pakka jakaja = new Pakka();
         
         jakaja.hit(peliPakka);
         jakaja.hit(peliPakka);
         
-        System.out.println("Jakajan käsi: " + jakaja.toString());
+        System.out.println("Jakajan käsi: " + jakaja.toString() + "\n" + "Korttien arvo: " + jakaja.korttienPisteet());
     }
 }

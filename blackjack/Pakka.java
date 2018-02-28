@@ -52,4 +52,55 @@ public class Pakka {
         this.pakka.add(jakoPakasta.getKortti(0));
         jakoPakasta.poistaKortti(0);
     }
+    
+    //korttien arvot, kutsutaan pisteiksi ettei mene sekaisin
+    public int korttienPisteet(){
+        int kokoPisteet = 0;
+        // ässä voi olla 1 tai 11 jotenka ne pitää tilanteesta riippuen
+        int assat = 0;
+        
+        // for lause pakan jokaiselle kortille
+        for(Kortti tKortti : this.pakka){
+            //käytetään switch case jokaisen kortin arvon määrittelyyn
+            switch(tKortti.getArvo()){
+                case KAKSI: kokoPisteet += 2;
+                break;
+                case KOLME: kokoPisteet += 3;
+                break;
+                case NELJA: kokoPisteet += 4;
+                break;
+                case VIISI: kokoPisteet += 5;
+                break;
+                case KUUSI: kokoPisteet += 6;
+                break;
+                case SEITSEMAN: kokoPisteet += 7;
+                break;
+                case KAHDEKSAN: kokoPisteet += 8;
+                break;
+                case YHDEKSAN: kokoPisteet += 9;
+                break;
+                case KYMMENEN: kokoPisteet += 10;
+                break;
+                case JATKA: kokoPisteet += 10;
+                break;
+                case QUNINGATAR: kokoPisteet += 10;
+                break;
+                case KUNINGAS: kokoPisteet += 10;
+                break;
+                case ASSA: kokoPisteet += 1;
+                break;
+            }
+        }
+        //ässien arvon määrittely
+        for (int i = 0; i < assat; i++){
+            // jos pisteet menisi yli 21 ässän ollessa 11, sen arvo on 1.
+            if(kokoPisteet > 10){
+                kokoPisteet += 1;
+            } else {
+                kokoPisteet += 11;
+            }
+        }
+        //palautetaan korttien yhteenlasketut pisteet
+        return kokoPisteet;
+    }
 }
