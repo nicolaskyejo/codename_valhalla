@@ -2,7 +2,6 @@ package blackjack;
 
 import java.util.ArrayList;
 import java.util.Collections;
-import java.util.Random;
 
 /**
  *
@@ -31,11 +30,26 @@ public class Pakka {
     @Override
     public String toString(){
         String korttiLista = "";
-        int i = 0;
         for (Kortti tKortti : this.pakka){
-            korttiLista += "\n" + i + " " + tKortti.toString();
-            i++;
+            korttiLista += "\n " + tKortti.toString();
         }
         return korttiLista;
+    }
+    
+    public void poistaKortti(int i){
+        this.pakka.remove(i);
+    }
+    
+    public Kortti getKortti(int i){
+        return this.pakka.get(i);
+    }
+    
+    public void lisaaKortti(Kortti lisaaKortti){
+        this.pakka.add(lisaaKortti);
+    }
+    
+    public void hit(Pakka jakoPakasta){
+        this.pakka.add(jakoPakasta.getKortti(0));
+        jakoPakasta.poistaKortti(0);
     }
 }
