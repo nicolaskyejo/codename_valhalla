@@ -87,7 +87,7 @@ public class Pakka {
                 break;
                 case KUNINGAS: kokoPisteet += 10;
                 break;
-                case ASSA: kokoPisteet += 1;
+                case ASSA: assat += 1;
                 break;
             }
         }

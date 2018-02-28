@@ -24,6 +24,7 @@ public class Testiluokka {
         
         jakaja.hit(peliPakka);
         jakaja.hit(peliPakka);
+        jakaja.hit(peliPakka);
         
         System.out.println("Jakajan käsi: " + jakaja.toString() + "\n" + "Korttien arvo: " + jakaja.korttienPisteet());
     }
