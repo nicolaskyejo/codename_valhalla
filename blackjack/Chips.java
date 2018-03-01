@@ -1,6 +1,5 @@
 package blackjack;
 
-import java.util.*;
 
 /*
  *@author Merja
@@ -33,5 +32,4 @@ public class Chips {
         return euromaara;
     }
 
-<
-
+}
