@@ -31,6 +31,8 @@ public class Controller {
     
     
     // End
+        nimi_ja_score.initialize();
+
     score = raha * 10;   // score formula
     nimi_ja_score.checkHighScore(score, nimi);  // katso onko score hyvä 
     nimi_ja_score.showHighScore();       // näytä kaikki scoret
