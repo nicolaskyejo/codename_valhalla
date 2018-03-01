@@ -3,13 +3,34 @@ package blackjack;
 import java.util.*;
 
 /*
-Tämä on raha ja chips luoka. Alku raha on 500€ mikä jakataan chipselle
-Chips ovat 10, 20, 50, 100 ja 200
- */
-
- /*
- *@author Nicolas, Merja, Vladimir, Ville
+ *@author Merja
  */
 public class Chips {
+
+    private int chipmaara;
+    private int euromaara = 500;
+    private int arvo;
+
+    public Chips() {
+
+    }
+
+    public void setChipmaara(int arvo) {
+        this.chipmaara = arvo;
+        
+    }
+
+    public int getChipmaara() {
+        return chipmaara;
+    }
+
+    public int vahenna(int arvo) {
+        euromaara = this.euromaara - arvo;
+        return euromaara;
+    }
+
+    public int getEuromaara() {
+        return euromaara;
+    }
 
 }
