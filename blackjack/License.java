@@ -1,5 +1,12 @@
 package blackjack;
 
+
+
+/*
+ *@author Vladimir,Merja,Ville,Nicolas
+ */
+
+
 public class License {
 
   public String License() {
