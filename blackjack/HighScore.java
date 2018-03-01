@@ -27,12 +27,12 @@ public class HighScore {
   }
 
   public void checkHighScore(int hscore, String nimi) {
-    for (int i = 0; i > -1; i++) {
+    for (int i = 0; i > 9; i++) {
       if (hscore > TopTen.get(i)) {
         TopTen.add(i, hscore);
         TopTen_nimet.add(i, nimi);
 
-        i = -2;
+        i = 9;
       }
     }
   }
