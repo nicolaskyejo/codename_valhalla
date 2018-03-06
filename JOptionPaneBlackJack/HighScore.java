@@ -46,7 +46,7 @@ public class HighScore {
     this.TopTen_nimet.add(7, "Otho");
     this.TopTen.add(8, 6000);
     this.TopTen_nimet.add(8, "Vitellius");
-    this.TopTen.add(9, 5000);
+    this.TopTen.add(9, 5100);
     this.TopTen_nimet.add(9, "Vespasian");
   }
 
