@@ -26,8 +26,7 @@ public class Naytto {
               + "       3:  Kassa \n"
               + "       4:  Poistu kasinolta \n"
               + "       5:  Saannot \n"
-              + "       6:  Lisenssi");
-
+              + "       6:  Lisenssi", "♢♣♡♠",JOptionPane.INFORMATION_MESSAGE);
       try {
         // käyttäjän antama vastaus muutetaan numeroksi
         valinta = Integer.parseInt(valintaK);

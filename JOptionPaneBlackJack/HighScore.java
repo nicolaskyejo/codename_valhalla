@@ -1,5 +1,7 @@
 package JOptionPaneBlackJack;
 
+import java.io.FileNotFoundException;
+import java.io.PrintStream;
 import java.util.*;
 import javax.swing.JOptionPane;
 
@@ -50,13 +52,17 @@ public class HighScore {
     this.TopTen_nimet.add(9, "Vespasian");
   }
 
-  public void showHighScore() {
+  public void showHighScore() throws FileNotFoundException {
     StringBuilder kimba = new StringBuilder();        // helps to save all string output to one "string"
     for (int i = 0; i < 10; i++) {
       kimba.append(" \t" + TopTen_nimet.get(i) + "  \t" + TopTen.get(i) + "\n");
     }
 
     JOptionPane.showMessageDialog(null, kimba.toString(), "Hall of Fame", JOptionPane.INFORMATION_MESSAGE);
+    PrintStream ps = new PrintStream("top10_HighScore.txt");
+    {
+      ps.println(kimba);
+    }
   }
 
 }
