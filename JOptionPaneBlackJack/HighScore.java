@@ -3,6 +3,8 @@ package JOptionPaneBlackJack;
 import java.io.FileNotFoundException;
 import java.io.PrintStream;
 import java.util.*;
+import javax.swing.Icon;
+import javax.swing.ImageIcon;
 import javax.swing.JOptionPane;
 
 /*
@@ -16,6 +18,7 @@ public class HighScore {
 
   private ArrayList<Integer> TopTen = new ArrayList(10);
   private ArrayList<String> TopTen_nimet = new ArrayList(10);
+  Icon icon = new ImageIcon("aa.png");
 
   public void checkHighScore(int hscore, String nimi) {
     for (int i = 0; i < 9; i++) {
@@ -58,7 +61,7 @@ public class HighScore {
       kimba.append(" \t" + TopTen_nimet.get(i) + "  \t" + TopTen.get(i) + "\n");
     }
 
-    JOptionPane.showMessageDialog(null, kimba.toString(), "Hall of Fame", JOptionPane.INFORMATION_MESSAGE);
+    JOptionPane.showMessageDialog(null, kimba.toString(), "Hall of Fame", JOptionPane.INFORMATION_MESSAGE,icon);
     PrintStream ps = new PrintStream("top10_HighScore.txt");
     {
       ps.println(kimba);

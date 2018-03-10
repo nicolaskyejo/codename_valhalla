@@ -1,13 +1,20 @@
 package JOptionPaneBlackJack;
 
+import java.awt.Image;
+import java.io.FileNotFoundException;
+import java.util.logging.Level;
+import java.util.logging.Logger;
+
+
 import javax.swing.JOptionPane;
 
 public class Naytto {
 
   // määritetään kontrolleri, johon näyttö yhteydessä
   private Kontrolleri kontrolleri;
-  private License license = new License();
-  private PelinSaannot saannot = new PelinSaannot();
+  private final License license = new License();
+  private final PelinSaannot saannot = new PelinSaannot();
+ 
 
   // metodi luo näytön, joka sisältää perusvalikon.
   public void aloitusNaytto() {
@@ -26,7 +33,7 @@ public class Naytto {
               + "       3:  Kassa \n"
               + "       4:  Poistu kasinolta \n"
               + "       5:  Saannot \n"
-              + "       6:  Lisenssi", "♢♣♡♠",JOptionPane.INFORMATION_MESSAGE);
+              + "       6:  Lisenssi", "♢♣♡♠              ♣♠♢♡              ♢♡♣♠              ♣♢♡♠", JOptionPane.INFORMATION_MESSAGE);
       try {
         // käyttäjän antama vastaus muutetaan numeroksi
         valinta = Integer.parseInt(valintaK);
@@ -50,7 +57,7 @@ public class Naytto {
             aloitusNaytto();
             break;
           case 6:
-            license.License();
+            license.LicenseInfo();
             aloitusNaytto();
             break;
           default:
@@ -60,7 +67,11 @@ public class Naytto {
 
       } catch (Exception e) {
 
-        kontrolleri.lopetus();
+        try {
+          kontrolleri.lopetus();
+        } catch (FileNotFoundException ex) {
+          Logger.getLogger(Naytto.class.getName()).log(Level.SEVERE, null, ex);
+        }
 
       }
 
