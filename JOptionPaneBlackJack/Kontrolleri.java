@@ -55,7 +55,20 @@ public class Kontrolleri {
 
         do {
 
-          if (pelaaja.korttienPisteet() <= 21) {
+          if (pelaaja.korttienPisteet(21) <= 21) {
+              
+              if (pelaaja.korttienPisteet(21) == 21){
+              naytto.naytaViesti("Jakajan käsi: " + jakaja.toString()
+                    + "\n Korttien arvo: " + jakaja.korttienPisteet()
+                    + "\n\nPelaajan käsi: " + pelaaja.toString()
+                    + "\n Korttien arvo: " + pelaaja.korttienPisteet()
+                    + "\n\n\nBLACK JACK!!!!");
+              jakaja.hit(pakka); //otta kortti vain yksi kertä
+              vastaus = "2";
+              }
+              
+            //jos pelajalla tulee arvo 21, sitten ei tarvi kysyä.
+              if (pelaaja.korttienPisteet(21) != 21){  
 
             vastaus = naytto.kysyTieto("Jakajan käsi: " + jakaja.toString()
                     + "\n Korttien arvo: " + jakaja.korttienPisteet()
@@ -63,18 +76,25 @@ public class Kontrolleri {
                     + "\n Korttien arvo: " + pelaaja.korttienPisteet()
                     + "\n\n\nSyötä (1), jos haluat uuden kortin. "
                     + "\nSyötä (2), jos haluat lopettaa vuorosi. ");
+            }
 
             switch (vastaus) {
               case "1":
                 pelaaja.hit(pakka);
                 break;
               case "2":
-                if (jakaja.korttienPisteet() <= pelaaja.korttienPisteet()
+                  if (jakaja.korttienPisteet() <= pelaaja.korttienPisteet(21)
                         && jakaja.korttienPisteet() < 21) {
+                      
+                //jos pelajalla tulee arvo 21, sitten ei tarvi ota kortti
+                if (pelaaja.korttienPisteet(21) != 21){
                   do {
                     jakaja.hit(pakka);
-                  } while (jakaja.korttienPisteet() < pelaaja.korttienPisteet());
-                  if ((jakaja.korttienPisteet() > 21)) {
+                  } while (jakaja.korttienPisteet() < pelaaja.korttienPisteet(21));
+                } 
+                //
+                
+                  if (jakaja.korttienPisteet() > 21) {
                     chipit.lisaa(panos * 2);
                     naytto.naytaViesti("Jakajan käsi: " + jakaja.toString()
                             + "\n Korttien arvo: " + jakaja.korttienPisteet()
@@ -82,7 +102,7 @@ public class Kontrolleri {
                             + "\n Korttien arvo: " + pelaaja.korttienPisteet()
                             + "\n\n\nJakajan korttien arvo ylitti 21. "
                             + "\nVoitit " + panos + " chippiä! ");
-                  } else if (jakaja.korttienPisteet() == pelaaja.korttienPisteet()) {
+                  } else if (jakaja.korttienPisteet() == pelaaja.korttienPisteet(21)) {
                     chipit.lisaa(panos);
                     naytto.naytaViesti("Jakajan käsi: " + jakaja.toString()
                             + "\n Korttien arvo: " + jakaja.korttienPisteet()
@@ -90,6 +110,14 @@ public class Kontrolleri {
                             + "\n Korttien arvo: " + pelaaja.korttienPisteet()
                             + "\n\n\nKorttien arvot ovat samat: tasapeli!"
                             + "\nSait " + panos + " chippiäsi takaisin. ");
+                  } else if (jakaja.korttienPisteet() < pelaaja.korttienPisteet(21) ) {
+                    chipit.lisaa(panos * 2);
+                    naytto.naytaViesti("Jakajan käsi: " + jakaja.toString()
+                            + "\n Korttien arvo: " + jakaja.korttienPisteet()
+                            + "\n\nPelaajan käsi: " + pelaaja.toString()
+                            + "\n Korttien arvo: " + pelaaja.korttienPisteet()
+                            + "\n\n\nJakajan korttien arvo on pienempi."
+                            + "\nVoitit " + panos + " chippiä! ");
                   } else {
                     naytto.naytaViesti("Jakajan käsi: " + jakaja.toString()
                             + "\n Korttien arvo: " + jakaja.korttienPisteet()
