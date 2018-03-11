@@ -46,6 +46,10 @@ public class Pakka {
         jakoPakasta.poistaKortti(0);
     }
     
+    public int korttienPisteet(int pisteet){
+        int kokoPisteet = pisteet;
+        return pisteet;
+    }
     //korttien arvot, kutsutaan pisteiksi ettei mene sekaisin
     public int korttienPisteet(){
         int kokoPisteet = 0;
