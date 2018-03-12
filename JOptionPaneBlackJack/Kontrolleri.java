@@ -32,6 +32,7 @@ public class Kontrolleri {
         // pyydetään Model-kerrokselta chippien määrä
         int chipMaara = chipit.getSaldo();
         String vastaus;
+        int valinta = 0;
 
         if (chipMaara > 0) {
 
@@ -73,60 +74,49 @@ public class Kontrolleri {
                                 + "\nVoitit panoksesi kolminkertaisena: " + panos * 3 + " chippiä!");
                     }
                 } else {
-
                     do {
-
                         if (pelaaja.korttienPisteet() <= 21) {
-
-                            vastaus = naytto.kysyTieto("Jakajan käsi: " + jakaja.toString()
+                            valinta = naytto.otatkoKortin("Jakajan käsi: " + jakaja.toString()
                                     + "\n Korttien arvo: " + jakaja.korttienPisteet()
                                     + "\n\nPelaajan käsi: " + pelaaja.toString()
                                     + "\n Korttien arvo: " + pelaaja.korttienPisteet()
-                                    + "\n\n\nSyötä (1), jos haluat uuden kortin. "
-                                    + "\nSyötä (2), jos haluat lopettaa vuorosi. ");
+                                    + "\n\n\nHaluatko ottaa ottaa kortin lisää "
+                                    + "\nvai jäädä nykyisiin kortteihin? ");
 
-                            switch (vastaus) {
-                                case "1":
+                            switch (valinta) {
+                                case 0:
                                     pelaaja.hit(pakka);
                                     break;
-                                case "2":
-                                    if (jakaja.korttienPisteet() <= pelaaja.korttienPisteet()
-                                            && jakaja.korttienPisteet() < 21) {
-                                        do {
-                                            jakaja.hit(pakka);
-                                        } while (jakaja.korttienPisteet() < pelaaja.korttienPisteet());
-                                        if ((jakaja.korttienPisteet() > 21)) {
-                                            chipit.lisaa(panos * 2);
-                                            naytto.naytaViesti("Jakajan käsi: " + jakaja.toString()
-                                                    + "\n Korttien arvo: " + jakaja.korttienPisteet()
-                                                    + "\n\nPelaajan käsi: " + pelaaja.toString()
-                                                    + "\n Korttien arvo: " + pelaaja.korttienPisteet()
-                                                    + "\n\n\nJakajan korttien arvo ylitti 21. "
-                                                    + "\nVoitit " + panos + " chippiä! ");
-                                        } else if (jakaja.korttienPisteet() == pelaaja.korttienPisteet()) {
-                                            chipit.lisaa(panos);
-                                            naytto.naytaViesti("Jakajan käsi: " + jakaja.toString()
-                                                    + "\n Korttien arvo: " + jakaja.korttienPisteet()
-                                                    + "\n\nPelaajan käsi: " + pelaaja.toString()
-                                                    + "\n Korttien arvo: " + pelaaja.korttienPisteet()
-                                                    + "\n\n\nKorttien arvot ovat samat: tasapeli!"
-                                                    + "\nSait " + panos + " chippiäsi takaisin. ");
-                                        } else {
-                                            naytto.naytaViesti("Jakajan käsi: " + jakaja.toString()
-                                                    + "\n Korttien arvo: " + jakaja.korttienPisteet()
-                                                    + "\n\nPelaajan käsi: " + pelaaja.toString()
-                                                    + "\n Korttien arvo: " + pelaaja.korttienPisteet()
-                                                    + "\n\n\nJakajan korttien arvo on suurempi, hävisit pelin. "
-                                                    + "\nMenetit " + panos + " chippiä.");
-                                        }
-                                    }
-                                    break;
-                                default:
-                                    naytto.naytaViesti("Jakaja ei pitänyt vastauksestasi.\n"
-                                            + "Sinut häädettiin pelipöydästä ja hävisit panoksesi.");
-                                    break;
-                            }
+                                case 1:
 
+                                    do {
+                                        jakaja.hit(pakka);
+                                    } while (jakaja.korttienPisteet() < 16);
+                                    if ((jakaja.korttienPisteet() > 21)) {
+                                        chipit.lisaa(panos * 2);
+                                        naytto.naytaViesti("Jakajan käsi: " + jakaja.toString()
+                                                + "\n Korttien arvo: " + jakaja.korttienPisteet()
+                                                + "\n\nPelaajan käsi: " + pelaaja.toString()
+                                                + "\n Korttien arvo: " + pelaaja.korttienPisteet()
+                                                + "\n\n\nJakajan korttien arvo ylitti 21. "
+                                                + "\nVoitit " + panos + " chippiä! ");
+                                    } else if (jakaja.korttienPisteet() == pelaaja.korttienPisteet()) {
+                                        chipit.lisaa(panos);
+                                        naytto.naytaViesti("Jakajan käsi: " + jakaja.toString()
+                                                + "\n Korttien arvo: " + jakaja.korttienPisteet()
+                                                + "\n\nPelaajan käsi: " + pelaaja.toString()
+                                                + "\n Korttien arvo: " + pelaaja.korttienPisteet()
+                                                + "\n\n\nKorttien arvot ovat samat: tasapeli!"
+                                                + "\nSait " + panos + " chippiäsi takaisin. ");
+                                    } else {
+                                        naytto.naytaViesti("Jakajan käsi: " + jakaja.toString()
+                                                + "\n Korttien arvo: " + jakaja.korttienPisteet()
+                                                + "\n\nPelaajan käsi: " + pelaaja.toString()
+                                                + "\n Korttien arvo: " + pelaaja.korttienPisteet()
+                                                + "\n\n\nJakajan korttien arvo on suurempi, hävisit pelin. "
+                                                + "\nMenetit " + panos + " chippiä.");
+                                    }
+                            }
                         } else {
                             naytto.naytaViesti("Jakajan käsi: " + jakaja.toString()
                                     + "\n Korttien arvo: " + jakaja.korttienPisteet()
@@ -134,9 +124,11 @@ public class Kontrolleri {
                                     + "\n Korttien arvo: " + pelaaja.korttienPisteet()
                                     + "\n\n\nKorttiesi arvo ylitti 21, hävisit pelin. "
                                     + "\nMenetit " + panos + " chippiä.");
-                            vastaus = "2";
+                            valinta++;
                         }
-                    } while (vastaus.equals("1"));
+
+                    } while (valinta == 0);
+
                 }
             } else {
                 naytto.naytaViesti("Valitettavasti sinulla ei ole niin paljon chippejä. ");
