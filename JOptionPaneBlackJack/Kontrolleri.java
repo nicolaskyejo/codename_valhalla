@@ -225,9 +225,9 @@ public class Kontrolleri {
     highscore = new HighScore();
     highscore.initialize();
 
-    int score = rahaMaara * 10;              // score formula
-    if (score >= 5100) {
-      String nimi = JOptionPane.showInputDialog("Mikä on sinun nimesi?");
+    int score = rahaMaara +chipMaara;              // score formula
+    if (score >= 510) {
+      String nimi = JOptionPane.showInputDialog(null,"Mikä on sinun nimesi?",JOptionPane.PLAIN_MESSAGE);
 
       highscore.checkHighScore(score, nimi);  // katso onko score hyvä 
     }
