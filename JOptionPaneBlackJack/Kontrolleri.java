@@ -99,7 +99,7 @@ public class Kontrolleri {
                                                 + "\n\nPelaajan käsi: " + pelaaja.toString()
                                                 + "\n Korttien arvo: " + pelaaja.korttienPisteet()
                                                 + "\n\n\nJakajan korttien arvo ylitti 21. "
-                                                + "\nVoitit " + panos + " chippiä! ");
+                                                + "\nVoitit " + panos * 2 + " chippiä! ");
                                     } else if (jakaja.korttienPisteet() == pelaaja.korttienPisteet()) {
                                         chipit.lisaa(panos);
                                         naytto.naytaViesti("Jakajan käsi: " + jakaja.toString()
@@ -122,7 +122,7 @@ public class Kontrolleri {
                                                 + "\n\nPelaajan käsi: " + pelaaja.toString()
                                                 + "\n Korttien arvo: " + pelaaja.korttienPisteet()
                                                 + "\n\n\nKorttiesi arvo on suurempi, kuin jakajan. "
-                                                + "\nVoitit " + panos + " chippiä.");
+                                                + "\nVoitit " + panos * 2 + " chippiä.");
                                     }
                             }
                         } else {
