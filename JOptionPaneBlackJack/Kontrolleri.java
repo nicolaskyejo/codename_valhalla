@@ -158,53 +158,44 @@ public class Kontrolleri {
         int rahaMaara = rahat.getSaldo();
         int chipMaara = chipit.getSaldo();
 
-        // käsketään näyttöä kysymään mitä käyttäjä haluaa tehdä
-        vastaus = naytto.kysyTieto("Sinulla on " + rahaMaara + " euroa ja " + chipMaara + " chippiä.\n\n"
-                + "Syötä (1), jos haluat muuttaa rahaa chipeiksi.\n"
-                + "Syötä (2), jos haluat muuttaa chippejä rahaksi.");
-        switch (vastaus) {
-            case "1":
-                if (rahaMaara > 0) {
-                    vastaus = naytto.kysyTieto("Syötä, kuinka paljon haluat muuttaa rahojasi chipeiksi. ");
-                    int rahamuunnos = Integer.parseInt(vastaus);
+        if (naytto.kassalla("Sinulla on " + rahaMaara + " euroa ja " + chipMaara + " chippiä.\n\n"
+                + "Haluatko vaihtaa euroja chipeiksi vai chippejä euroiksi?\n") == 0) {
+            if (rahaMaara > 0) {
+                vastaus = naytto.kysyTieto("Syötä, kuinka paljon haluat muuttaa rahojasi chipeiksi. ");
+                int rahamuunnos = Integer.parseInt(vastaus);
 
-                    if (rahamuunnos <= rahaMaara) {
-                        rahat.vahenna(rahamuunnos);
-                        chipit.lisaa(rahamuunnos);
-                        naytto.naytaViesti("Muunnos onnistui. ");
-                    } else {
-                        naytto.naytaViesti("Valitettavasti sinulla ei ole tarpeeksi rahaa. ");
-                    }
+                if (rahamuunnos <= rahaMaara) {
+                    rahat.vahenna(rahamuunnos);
+                    chipit.lisaa(rahamuunnos);
+                    naytto.naytaViesti("Muunnos onnistui. ");
                 } else {
-                    naytto.naytaViesti("Valitettavasti sinulla ei ole yhtään rahaa. ");
+                    naytto.naytaViesti("Valitettavasti sinulla ei ole tarpeeksi rahaa. ");
                 }
-                break;
-            case "2":
-                if (chipMaara > 0) {
-                    vastaus = naytto.kysyTieto("Syötä, kuinka paljon haluat muuttaa chippejäsi rahaksi. ");
-                    int chipmuunnos = Integer.parseInt(vastaus);
+            } else {
+                naytto.naytaViesti("Valitettavasti sinulla ei ole yhtään rahaa. ");
+            }
+        } else {
+            if (chipMaara > 0) {
+                vastaus = naytto.kysyTieto("Syötä, kuinka paljon haluat muuttaa chippejäsi rahaksi. ");
+                int chipmuunnos = Integer.parseInt(vastaus);
 
-                    if (chipmuunnos <= chipMaara) {
-                        chipit.vahenna(chipmuunnos);
-                        rahat.lisaa(chipmuunnos);
-                        naytto.naytaViesti("Muunnos onnistui. ");
-                    } else {
-                        naytto.naytaViesti("Valitettavasti sinulla ei ole tarpeeksi chippejä. ");
-                    }
+                if (chipmuunnos <= chipMaara) {
+                    chipit.vahenna(chipmuunnos);
+                    rahat.lisaa(chipmuunnos);
+                    naytto.naytaViesti("Muunnos onnistui. ");
                 } else {
-                    naytto.naytaViesti("Valitettavasti sinulla ei ole yhtään chippejä. ");
+                    naytto.naytaViesti("Valitettavasti sinulla ei ole tarpeeksi chippejä. ");
                 }
-                break;
-            default:
-                naytto.naytaViesti("Kassatyöntekijä katsoo sinua kummastuneena.\n"
-                        + "Poistut paikalta vikkelään. ");
-                break;
+            } else {
+                naytto.naytaViesti("Valitettavasti sinulla ei ole yhtään chippejä. ");
+            }
         }
 
         // siirrytään aloitusnäyttöön
         naytto.aloitusNaytto();
     }
-
+    
+    
     public void lopetus() throws FileNotFoundException {
         int rahaMaara = rahat.getSaldo();
         int chipMaara = chipit.getSaldo();
