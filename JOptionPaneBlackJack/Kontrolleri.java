@@ -65,7 +65,7 @@ public class Kontrolleri {
                                 + "\n\n\nSekä pelaaja että jakaja saivat BlackJackin: tasapeli!"
                                 + "\nSait " + panos + " chippiäsi takaisin. ");
                     } else {
-                        chipit.lisaa(panos * 3);
+                        chipit.lisaa(panos * 4);
                         naytto.naytaViesti("Jakajan käsi: " + jakaja.toString()
                                 + "\n Korttien arvo: " + jakaja.korttienPisteet()
                                 + "\n\nPelaajan käsi: " + pelaaja.toString()
@@ -99,7 +99,7 @@ public class Kontrolleri {
                                                 + "\n\nPelaajan käsi: " + pelaaja.toString()
                                                 + "\n Korttien arvo: " + pelaaja.korttienPisteet()
                                                 + "\n\n\nJakajan korttien arvo ylitti 21. "
-                                                + "\nVoitit " + panos * 2 + " chippiä! ");
+                                                + "\nVoitit " + panos + " chippiä! ");
                                     } else if (jakaja.korttienPisteet() == pelaaja.korttienPisteet()) {
                                         chipit.lisaa(panos);
                                         naytto.naytaViesti("Jakajan käsi: " + jakaja.toString()
@@ -122,7 +122,7 @@ public class Kontrolleri {
                                                 + "\n\nPelaajan käsi: " + pelaaja.toString()
                                                 + "\n Korttien arvo: " + pelaaja.korttienPisteet()
                                                 + "\n\n\nKorttiesi arvo on suurempi, kuin jakajan. "
-                                                + "\nVoitit " + panos * 2 + " chippiä.");
+                                                + "\nVoitit " + panos + " chippiä.");
                                     }
                             }
                         } else {
