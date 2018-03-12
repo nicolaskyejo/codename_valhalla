@@ -89,6 +89,32 @@ public class Naytto {
     // kysymys toimii parametrina, metodi palauttaa käyttäjän antaman vastauksen 
     return JOptionPane.showInputDialog(kysymys);
   }
+  
+      public int kassalla(String jotain) {
+        Object[] options = {"Euroja chipeiksi", "Chippejä euroiksi"};
+
+        return JOptionPane.showOptionDialog(null,
+                jotain,
+                "Kassalla",                         //yläpalkin teksti
+                JOptionPane.YES_NO_OPTION,
+                JOptionPane.QUESTION_MESSAGE,
+                null,                               //liittyy kuvaan/ikoniin
+                options,                            //napit
+                options[0]);
+    }
+
+    public int otatkoKortin(String viesti) {
+        Object[] options = {"Ota kortti", "Päätä vuorosi"};
+
+        return JOptionPane.showOptionDialog(null,
+                viesti,
+                null,                               //tähän mitä yläpalkis lukee
+                JOptionPane.YES_NO_OPTION,
+                JOptionPane.QUESTION_MESSAGE,
+                null,                               //tää liittyy kuvaan/ikoniin
+                options,                            //napit
+                options[0]);
+    }
 
   public void rekisteroiOhjain(Kontrolleri ohjain) {
     // näyttö saa tiedon kontrollerista, jolle se välittää pyyntöjä
