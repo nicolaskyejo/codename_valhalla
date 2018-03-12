@@ -91,7 +91,7 @@ public class Naytto {
   }
   
       public int kassalla(String jotain) {
-        Object[] options = {"Euroja chipeiksi", "Chippejä euroiksi"};
+        Object[] napit = {"Euroja chipeiksi", "Chippejä euroiksi"};
 
         return JOptionPane.showOptionDialog(null,
                 jotain,
@@ -99,12 +99,12 @@ public class Naytto {
                 JOptionPane.YES_NO_OPTION,
                 JOptionPane.QUESTION_MESSAGE,
                 null,                               //liittyy kuvaan/ikoniin
-                options,                            //napit
-                options[0]);
+                napit,                            //napit
+                napit[0]);
     }
 
     public int otatkoKortin(String viesti) {
-        Object[] options = {"Ota kortti", "Päätä vuorosi"};
+        Object[] napit = {"Ota kortti", "Päätä vuorosi"};
 
         return JOptionPane.showOptionDialog(null,
                 viesti,
@@ -112,8 +112,8 @@ public class Naytto {
                 JOptionPane.YES_NO_OPTION,
                 JOptionPane.QUESTION_MESSAGE,
                 null,                               //tää liittyy kuvaan/ikoniin
-                options,                            //napit
-                options[0]);
+                napit,                            //napit
+                napit[0]);
     }
 
   public void rekisteroiOhjain(Kontrolleri ohjain) {
