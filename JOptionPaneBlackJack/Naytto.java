@@ -30,11 +30,11 @@ public class Naytto {
                     + "       1:  Pelaa \n"
                     + "       2:  Tarkastele taskujasi \n"
                     + "       3:  Kassa \n"
-                    + "       4:  Poistu kasinolta \n"
-                    + "       5:  Saannot \n"
-                    + "       6:  Lisenssi", "♢♣♡♠              ♣♠♢♡              ♢♡♣♠              ♣♢♡♠", JOptionPane.INFORMATION_MESSAGE);
+                    + "       4:  Peliohjeet \n"
+                    + "       5:  Lisenssi \n"
+                    + "       6:  Poistu kasinolta", "♢♣♡♠              ♣♠♢♡              ♢♡♣♠              ♣♢♡♠", JOptionPane.INFORMATION_MESSAGE);
             if (valintaK == null) {
-                valintaK = "4";
+                valintaK = "6";
             }
         } while (valintaK.length() == 0);
         try {
@@ -53,15 +53,15 @@ public class Naytto {
                     kontrolleri.kassa();
                     break;
                 case 4:
-                    kontrolleri.lopetus();
-                    break;
-                case 5:
                     saannot.kerrosaannot();
                     aloitusNaytto();
                     break;
-                case 6:
+                case 5:
                     license.LicenseInfo();
                     aloitusNaytto();
+                    break;
+                case 6:
+                    kontrolleri.lopetus();
                     break;
                 default:
                     aloitusNaytto();
