@@ -1,7 +1,6 @@
 package JOptionPaneBlackJack;
 
 import java.io.FileNotFoundException;
-import javax.swing.JOptionPane;
 
 public class Kontrolleri {
 
@@ -227,7 +226,7 @@ public class Kontrolleri {
 
     int score = rahaMaara +chipMaara;              // score formula
     if (score >= 510) {
-      String nimi = JOptionPane.showInputDialog(null,"Mikä on sinun nimesi?",JOptionPane.PLAIN_MESSAGE);
+      String nimi = naytto.kysyTieto("Mikä on sinun nimesi?");
 
       highscore.checkHighScore(score, nimi);  // katso onko score hyvä 
     }
