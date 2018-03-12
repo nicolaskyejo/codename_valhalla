@@ -18,6 +18,7 @@ public class Naytto {
 
   ImageIcon iconA = new ImageIcon(Naytto.class.getResource("jc.gif"));
   ImageIcon iconB = new ImageIcon(Naytto.class.getResource("js.gif"));
+  ImageIcon kassakone = new ImageIcon(Naytto.class.getResource("kassakone.gif"));
 
   // metodi luo näytön, joka sisältää perusvalikon.
   public void aloitusNaytto() {
@@ -107,7 +108,7 @@ public class Naytto {
             "Kassalla", //yläpalkin teksti
             JOptionPane.YES_NO_OPTION,
             JOptionPane.PLAIN_MESSAGE,
-            null, //liittyy kuvaan/ikoniin
+            kassakone, //liittyy kuvaan/ikoniin
             napit, //napit
             napit[0]);
   }
