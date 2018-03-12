@@ -36,95 +36,95 @@ public class Naytto {
 
     do {
 
-      // päävalikko
-      valintaK = JOptionPane.showInputDialog(null, message,
-              "B  L  A  C  K    J A C K    21", JOptionPane.INFORMATION_MESSAGE);
-      if (valintaK == null) {
-        valintaK = "6";
-      }
-    } while (valintaK.length() == 0);
-    try {
-      // käyttäjän antama vastaus muutetaan numeroksi
-      valinta = Integer.parseInt(valintaK);
+            // päävalikko
+            valintaK = JOptionPane.showInputDialog(null, message,
+                    "B  L  A  C  K    J A C K    21", JOptionPane.PLAIN_MESSAGE);
+            if (valintaK == null) {
+                valintaK = "6";
+            }
+        } while (valintaK.length() == 0);
+        try {
+            // käyttäjän antama vastaus muutetaan numeroksi
+            valinta = Integer.parseInt(valintaK);
 
-      // ilmoitetaan kontrollerille käyttäjän valitsema toiminto
-      switch (valinta) {
-        case 1:
-          kontrolleri.pelaa();
-          break;
-        case 2:
-          kontrolleri.saldo();
-          break;
-        case 3:
-          kontrolleri.kassa();
-          break;
-        case 4:
-          saannot.kerrosaannot();
-          aloitusNaytto();
-          break;
-        case 5:
-          license.LicenseInfo();
-          aloitusNaytto();
-          break;
-        case 6:
-          kontrolleri.lopetus();
-          break;
-        default:
-          aloitusNaytto();
-      }
+            // ilmoitetaan kontrollerille käyttäjän valitsema toiminto
+            switch (valinta) {
+                case 1:
+                    kontrolleri.pelaa();
+                    break;
+                case 2:
+                    kontrolleri.saldo();
+                    break;
+                case 3:
+                    kontrolleri.kassa();
+                    break;
+                case 4:
+                    saannot.kerrosaannot();
+                    aloitusNaytto();
+                    break;
+                case 5:
+                    license.LicenseInfo();
+                    aloitusNaytto();
+                    break;
+                case 6:
+                    kontrolleri.lopetus();
+                    break;
+                default:
+                    aloitusNaytto();
+            }
 
-    } catch (Exception e) {
+        } catch (Exception e) {
 
-      try {
-        kontrolleri.lopetus();
-      } catch (FileNotFoundException ex) {
-        Logger.getLogger(Naytto.class.getName()).log(Level.SEVERE, null, ex);
-      }
+            try {
+                kontrolleri.lopetus();
+            } catch (FileNotFoundException ex) {
+                Logger.getLogger(Naytto.class.getName()).log(Level.SEVERE, null, ex);
+            }
+
+        }
 
     }
 
-  }
+    // näytön toimintoja
+    public void naytaViesti(String viesti) {
+        // Parametrina näytettävä viesti
+        JOptionPane.showMessageDialog(null, viesti, null, JOptionPane.PLAIN_MESSAGE);
+    }
 
-  // näytön toimintoja
-  public void naytaViesti(String viesti) {
-    // Parametrina näytettävä viesti
-    JOptionPane.showMessageDialog(null, viesti);
-  }
+    public String kysyTieto(String kysymys) {
+        // kysymys toimii parametrina, metodi palauttaa käyttäjän antaman vastauksen 
+        return JOptionPane.showInputDialog(null, kysymys, null, JOptionPane.PLAIN_MESSAGE);
+    }
 
-  public String kysyTieto(String kysymys) {
-    // kysymys toimii parametrina, metodi palauttaa käyttäjän antaman vastauksen 
-    return JOptionPane.showInputDialog(kysymys);
-  }
+    public int kassalla(String jotain) {
+        Object[] napit = {"Euroja chipeiksi", "Chippejä euroiksi"};
 
-  public int kassalla(String jotain) {
-    Object[] napit = {"Euroja chipeiksi", "Chippejä euroiksi"};
+        return JOptionPane.showOptionDialog(null,
+                jotain,
+                "Kassalla", //yläpalkin teksti
+                JOptionPane.YES_NO_OPTION,
+                JOptionPane.PLAIN_MESSAGE,
+                null, //liittyy kuvaan/ikoniin
+                napit, //napit
+                napit[0]);
+    }
 
-    return JOptionPane.showOptionDialog(null,
-            jotain,
-            "Kassalla", //yläpalkin teksti
-            JOptionPane.YES_NO_OPTION,
-            JOptionPane.QUESTION_MESSAGE,
-            null, //liittyy kuvaan/ikoniin
-            napit, //napit
-            napit[0]);
-  }
+    public int otatkoKortin(String viesti) {
+        Object[] napit = {"Ota kortti", "Päätä vuorosi"};
 
-  public int otatkoKortin(String viesti) {
-    Object[] napit = {"Ota kortti", "Päätä vuorosi"};
+        return JOptionPane.showOptionDialog(null,
+                viesti,
+                null, //tähän mitä yläpalkis lukee
+                JOptionPane.YES_NO_OPTION,
+                JOptionPane.PLAIN_MESSAGE,
+                null, //tää liittyy kuvaan/ikoniin
+                napit, //napit
+                napit[0]);
+    }
 
-    return JOptionPane.showOptionDialog(null,
-            viesti,
-            null, //tähän mitä yläpalkis lukee
-            JOptionPane.YES_NO_OPTION,
-            JOptionPane.QUESTION_MESSAGE,
-            null, //tää liittyy kuvaan/ikoniin
-            napit, //napit
-            napit[0]);
-  }
-
-  public void rekisteroiOhjain(Kontrolleri ohjain) {
-    // näyttö saa tiedon kontrollerista, jolle se välittää pyyntöjä
-    this.kontrolleri = ohjain;
-  }
+    public void rekisteroiOhjain(Kontrolleri ohjain) {
+        // näyttö saa tiedon kontrollerista, jolle se välittää pyyntöjä
+        this.kontrolleri = ohjain;
+    }
 
 }
