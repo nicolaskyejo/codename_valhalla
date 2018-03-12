@@ -41,6 +41,6 @@ public class PelinSaannot {
                 + "voittaa. Kun summat ovat samat, on tulos tasapeli.\n" + "\n"
                 + "Pelaajan voittaessa hän saa panoksensa kaksinkertaisena  \n"
                 + "takaisin. Hävitessään hän menettää panoksensa. Pelaajan ja \n"
-                + "jakajan tasatilanteessa pelaaja saa panoksensa takaisin. \n", "Peliohjeet", JOptionPane.INFORMATION_MESSAGE);
+                + "jakajan tasatilanteessa pelaaja saa panoksensa takaisin. \n", "Peliohjeet", JOptionPane.PLAIN_MESSAGE);
   }
 }

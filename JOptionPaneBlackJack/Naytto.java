@@ -96,7 +96,7 @@ public class Naytto {
 
   public String kysyTieto(String kysymys) {
     // kysymys toimii parametrina, metodi palauttaa käyttäjän antaman vastauksen 
-    return JOptionPane.showInputDialog(null, kysymys, null, JOptionPane.PLAIN_MESSAGE);
+    return (String) JOptionPane.showInputDialog(null, kysymys, "",JOptionPane.INFORMATION_MESSAGE,iconB,null,"");
   }
 
   public int kassalla(String jotain) {
