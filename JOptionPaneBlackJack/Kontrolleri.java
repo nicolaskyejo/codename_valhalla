@@ -35,9 +35,13 @@ public class Kontrolleri {
         int valinta = 0;
 
         if (chipMaara > 0) {
-
-            vastaus = naytto.kysyTieto("Sinulla on " + chipMaara + " chippiä. \n"
-                    + "Syötä kuinka paljon haluat asettaa panokseksi.");
+            do {
+                vastaus = naytto.kysyTieto("Sinulla on " + chipMaara + " chippiä. \n"
+                        + "Syötä kuinka paljon haluat asettaa panokseksi.");
+                if (vastaus == null) {
+                    naytto.aloitusNaytto();
+                }
+            } while (vastaus.length() == 0);
             int panos = Integer.parseInt(vastaus);
 
             if (panos <= chipMaara) {
@@ -169,7 +173,12 @@ public class Kontrolleri {
         if (naytto.kassalla("Sinulla on " + rahaMaara + " euroa ja " + chipMaara + " chippiä.\n\n"
                 + "Haluatko vaihtaa euroja chipeiksi vai chippejä euroiksi?\n") == 0) {
             if (rahaMaara > 0) {
-                vastaus = naytto.kysyTieto("Syötä, kuinka paljon haluat muuttaa rahojasi chipeiksi. ");
+                do {
+                    vastaus = naytto.kysyTieto("Syötä, kuinka paljon haluat muuttaa rahojasi chipeiksi. ");
+                    if (vastaus == null) {
+                        naytto.aloitusNaytto();
+                    }
+                } while (vastaus.length() == 0);
                 int rahamuunnos = Integer.parseInt(vastaus);
 
                 if (rahamuunnos <= rahaMaara) {
@@ -184,7 +193,12 @@ public class Kontrolleri {
             }
         } else {
             if (chipMaara > 0) {
-                vastaus = naytto.kysyTieto("Syötä, kuinka paljon haluat muuttaa chippejäsi rahaksi. ");
+                do {
+                    vastaus = naytto.kysyTieto("Syötä, kuinka paljon haluat muuttaa chippejäsi rahaksi. ");
+                    if (vastaus == null) {
+                        naytto.aloitusNaytto();
+                    }
+                } while (vastaus.length() == 0);
                 int chipmuunnos = Integer.parseInt(vastaus);
 
                 if (chipmuunnos <= chipMaara) {
