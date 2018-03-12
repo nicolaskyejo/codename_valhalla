@@ -108,13 +108,21 @@ public class Kontrolleri {
                                                 + "\n Korttien arvo: " + pelaaja.korttienPisteet()
                                                 + "\n\n\nKorttien arvot ovat samat: tasapeli!"
                                                 + "\nSait " + panos + " chippiäsi takaisin. ");
-                                    } else {
+                                    } else if (jakaja.korttienPisteet() > pelaaja.korttienPisteet()){
                                         naytto.naytaViesti("Jakajan käsi: " + jakaja.toString()
                                                 + "\n Korttien arvo: " + jakaja.korttienPisteet()
                                                 + "\n\nPelaajan käsi: " + pelaaja.toString()
                                                 + "\n Korttien arvo: " + pelaaja.korttienPisteet()
                                                 + "\n\n\nJakajan korttien arvo on suurempi, hävisit pelin. "
                                                 + "\nMenetit " + panos + " chippiä.");
+                                    } else {
+                                        chipit.lisaa(panos * 2);
+                                        naytto.naytaViesti("Jakajan käsi: " + jakaja.toString()
+                                                + "\n Korttien arvo: " + jakaja.korttienPisteet()
+                                                + "\n\nPelaajan käsi: " + pelaaja.toString()
+                                                + "\n Korttien arvo: " + pelaaja.korttienPisteet()
+                                                + "\n\n\nKorttiesi arvo on suurempi, kuin jakajan. "
+                                                + "\nVoitit " + panos + " chippiä.");
                                     }
                             }
                         } else {
