@@ -20,64 +20,64 @@ public class Naytto {
   public void aloitusNaytto() {
     String valintaK;      // käyttäjän valinta merkkijonona
     int valinta;            // valinta numerona
-    boolean onnistui = false;   // onnistuiko lukeminen
 
-    while (!onnistui) {
+        do {
 
-      // päävalikko
-      valintaK = JOptionPane.showInputDialog(null,
-              "Tervetuloa kasinolle pelaamaan BlackJackiä! \n"
-              + "Valitse toiminto (1-4) seuraavista: \n"
-              + "       1:  Pelaa \n"
-              + "       2:  Tarkastele taskujasi \n"
-              + "       3:  Kassa \n"
-              + "       4:  Poistu kasinolta \n"
-              + "       5:  Saannot \n"
-              + "       6:  Lisenssi", "♢♣♡♠              ♣♠♢♡              ♢♡♣♠              ♣♢♡♠", JOptionPane.INFORMATION_MESSAGE);
-      try {
-        // käyttäjän antama vastaus muutetaan numeroksi
-        valinta = Integer.parseInt(valintaK);
-
-        // ilmoitetaan kontrollerille käyttäjän valitsema toiminto
-        switch (valinta) {
-          case 1:
-            kontrolleri.pelaa();
-            break;
-          case 2:
-            kontrolleri.saldo();
-            break;
-          case 3:
-            kontrolleri.kassa();
-            break;
-          case 4:
-            kontrolleri.lopetus();
-            break;
-          case 5:
-            saannot.kerrosaannot();
-            aloitusNaytto();
-            break;
-          case 6:
-            license.LicenseInfo();
-            aloitusNaytto();
-            break;
-          default:
-            aloitusNaytto();
-        }
-        onnistui = true;
-
-      } catch (Exception e) {
-
+            // päävalikko
+            valintaK = JOptionPane.showInputDialog(null,
+                    "Tervetuloa kasinolle pelaamaan BlackJackiä! \n"
+                    + "Valitse toiminto (1-4) seuraavista: \n"
+                    + "       1:  Pelaa \n"
+                    + "       2:  Tarkastele taskujasi \n"
+                    + "       3:  Kassa \n"
+                    + "       4:  Poistu kasinolta \n"
+                    + "       5:  Saannot \n"
+                    + "       6:  Lisenssi", "♢♣♡♠              ♣♠♢♡              ♢♡♣♠              ♣♢♡♠", JOptionPane.INFORMATION_MESSAGE);
+            if (valintaK == null) {
+                valintaK = "4";
+            }
+        } while (valintaK.length() == 0);
         try {
-          kontrolleri.lopetus();
-        } catch (FileNotFoundException ex) {
-          Logger.getLogger(Naytto.class.getName()).log(Level.SEVERE, null, ex);
-        }
+            // käyttäjän antama vastaus muutetaan numeroksi
+            valinta = Integer.parseInt(valintaK);
 
-      }
+            // ilmoitetaan kontrollerille käyttäjän valitsema toiminto
+            switch (valinta) {
+                case 1:
+                    kontrolleri.pelaa();
+                    break;
+                case 2:
+                    kontrolleri.saldo();
+                    break;
+                case 3:
+                    kontrolleri.kassa();
+                    break;
+                case 4:
+                    kontrolleri.lopetus();
+                    break;
+                case 5:
+                    saannot.kerrosaannot();
+                    aloitusNaytto();
+                    break;
+                case 6:
+                    license.LicenseInfo();
+                    aloitusNaytto();
+                    break;
+                default:
+                    aloitusNaytto();
+            }
+
+        } catch (Exception e) {
+
+            try {
+                kontrolleri.lopetus();
+            } catch (FileNotFoundException ex) {
+                Logger.getLogger(Naytto.class.getName()).log(Level.SEVERE, null, ex);
+            }
+
+        }
 
     }
-
-  }
 
   // näytön toimintoja
   public void naytaViesti(String viesti) {
