@@ -8,7 +8,7 @@ import javax.swing.ImageIcon;
 import javax.swing.JOptionPane;
 
 /*
-Tämä luoka tallenaa nimit ja highscoret
+TÃ¤mÃ¤ luoka tallenaa nimit ja highscoret
  */
 
  /*
@@ -18,7 +18,8 @@ public class HighScore {
 
   private ArrayList<Integer> TopTen = new ArrayList(10);
   private ArrayList<String> TopTen_nimet = new ArrayList(10);
-  Icon icon = new ImageIcon("aa.png");
+  //Icon icon = new ImageIcon("aa.png");
+  ImageIcon icon = new ImageIcon(Naytto.class.getResource("bb.png"));
 
   public void checkHighScore(int hscore, String nimi) {
     for (int i = 0; i < 9; i++) {
@@ -61,7 +62,7 @@ public class HighScore {
       kimba.append(" \t" + TopTen_nimet.get(i) + "  \t" + TopTen.get(i) + "\n");
     }
 
-    JOptionPane.showMessageDialog(null, kimba.toString(), "Hall of Fame", JOptionPane.INFORMATION_MESSAGE,icon);
+    JOptionPane.showMessageDialog(null, kimba.toString(), "Hall of Fame", JOptionPane.INFORMATION_MESSAGE, icon);
     PrintStream ps = new PrintStream("top10_HighScore.txt");
     {
       ps.println(kimba);
