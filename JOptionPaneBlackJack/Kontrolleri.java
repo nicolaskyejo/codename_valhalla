@@ -39,7 +39,19 @@ public class Kontrolleri {
                 + "Syötä kuinka paljon haluat asettaa panokseksi.");
         if (vastaus == null) {
           naytto.aloitusNaytto();
-        }
+        } else if (vastaus.length() > 0 ) {
+              try {
+                  if (Integer.parseInt(vastaus) < 0 ) {
+                    naytto.naytaViesti("Ei voi olla negatiivinen määrä.");
+                    vastaus = "";
+                  } else if (Integer.parseInt(vastaus) > 0){
+                    //OK
+                  }
+              } catch (Exception e) {
+                  naytto.naytaViesti("Muoto virhe. Teksti ei sopii. Käyttä numerot.");
+                  vastaus = "";
+              }
+          }
       } while (vastaus.length() == 0);
       int panos = Integer.parseInt(vastaus);
 
@@ -177,7 +189,19 @@ public class Kontrolleri {
                   "Sinulla on " + rahaMaara + " euroa");
           if (vastaus == null) {
             naytto.aloitusNaytto();
-          }
+          } else if (vastaus.length() > 0 ) {
+              try {
+                  if (Integer.parseInt(vastaus) < 0 ) {
+                    naytto.naytaViesti("Ei voi olla negatiivinen määrä.");
+                    vastaus = "";
+                  } else if (Integer.parseInt(vastaus) > 0){
+                    //OK
+                  }
+              } catch (Exception e) {
+                  naytto.naytaViesti("Muoto virhe. Teksti ei sopii. Käyttä numerot.");
+                  vastaus = "";
+              }
+          } 
         } while (vastaus.length() == 0);
         int rahamuunnos = Integer.parseInt(vastaus);
 
@@ -198,6 +222,18 @@ public class Kontrolleri {
                   "Sinulla on " + chipMaara + " chipia");
           if (vastaus == null) {
             naytto.aloitusNaytto();
+          } else if (vastaus.length() > 0 ) {
+              try {
+                  if (Integer.parseInt(vastaus) < 0 ) {
+                    naytto.naytaViesti("Ei voi olla negatiivinen määrä.");
+                    vastaus = "";
+                  } else if (Integer.parseInt(vastaus) > 0){
+                    //OK
+                  }
+              } catch (Exception e) {
+                  naytto.naytaViesti("Muoto virhe. Teksti ei sopii. Käyttä numerot.");
+                  vastaus = "";
+              }
           }
         } while (vastaus.length() == 0);
         int chipmuunnos = Integer.parseInt(vastaus);
