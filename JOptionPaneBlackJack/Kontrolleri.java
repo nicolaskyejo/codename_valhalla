@@ -173,7 +173,8 @@ public class Kontrolleri {
             + "Haluatko vaihtaa euroja chipeiksi vai chippejä euroiksi?\n") == 0) {
       if (rahaMaara > 0) {
         do {
-          vastaus = naytto.kysyTieto("Syötä, kuinka paljon haluat muuttaa rahojasi chipeiksi. ");
+          vastaus = naytto.kysyTieto("Syötä, kuinka paljon haluat muuttaa rahojasi chipeiksi.\n " +
+                  "Sinulla on " + rahaMaara + " euroa");
           if (vastaus == null) {
             naytto.aloitusNaytto();
           }
@@ -193,7 +194,8 @@ public class Kontrolleri {
     } else {
       if (chipMaara > 0) {
         do {
-          vastaus = naytto.kysyTieto("Syötä, kuinka paljon haluat muuttaa chippejäsi rahaksi. ");
+          vastaus = naytto.kysyTieto("Syötä, kuinka paljon haluat muuttaa chippejäsi rahaksi.\n " +
+                  "Sinulla on " + chipMaara + " chipia");
           if (vastaus == null) {
             naytto.aloitusNaytto();
           }
