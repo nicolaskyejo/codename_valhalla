@@ -181,7 +181,7 @@ public class Kontrolleri {
         int chipMaara = chipit.getSaldo();
 
         if (naytto.kassalla("Sinulla on " + rahaMaara + " euroa ja " + chipMaara + " chippiä.\n"
-                + "Valitse, haluatko vaihtaa \n" 
+                + "Valitse, haluatko vaihtaa \n"
                 + "euroja chipeiksi vai chippejä euroiksi.\n") == 0) {
             if (rahaMaara > 0) {
                 do {
