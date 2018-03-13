@@ -45,6 +45,9 @@ public class Naytto {
               "B  L  A  C  K    J A C K    21", JOptionPane.PLAIN_MESSAGE);
       if (valintaK == null) {
         valintaK = "6";
+      } else if (valintaK.length() > 1) {
+          naytaViesti("Sinun pitää valita 1-6");
+          valintaK = "0";
       }
     } while (valintaK.length() == 0);
     try {
