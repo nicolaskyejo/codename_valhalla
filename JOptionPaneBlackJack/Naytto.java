@@ -13,7 +13,7 @@ public class Naytto {
     private final License license = new License();
     private final PelinSaannot saannot = new PelinSaannot();
 
-    ImageIcon iconA = new ImageIcon(Naytto.class.getResource("jc.gif"));
+    ImageIcon exit = new ImageIcon(Naytto.class.getResource("exit.png"));
     ImageIcon iconB = new ImageIcon(Naytto.class.getResource("js.gif"));
     ImageIcon kassakone = new ImageIcon(Naytto.class.getResource("kassakone.png"));
     ImageIcon jakaja = new ImageIcon(Naytto.class.getResource("jakaja.png"));
@@ -89,7 +89,7 @@ public class Naytto {
     // näytön toimintoja
     public void naytaViesti(String viesti) {
         // Parametrina näytettävä viesti
-        JOptionPane.showMessageDialog(null, viesti, null, JOptionPane.PLAIN_MESSAGE, iconA);
+        JOptionPane.showMessageDialog(null, viesti, "Tervetuloa uudestaan!", JOptionPane.PLAIN_MESSAGE, exit);
     }
 
     //naytaViesti jakajan kuvalla
