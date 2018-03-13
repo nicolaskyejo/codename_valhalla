@@ -7,7 +7,7 @@ import javax.swing.ImageIcon;
 import javax.swing.JOptionPane;
 
 /*
-TÃmÃ luoka tallenaa nimit ja highscoret
+This luoka tallenaa nimit ja highscoret
  */
 
  /*
@@ -58,10 +58,11 @@ public class HighScore {
   public void showHighScore() {
     StringBuilder kimba = new StringBuilder();        // helps to save all string output to one "string"
     for (int i = 0; i < 10; i++) {
-      kimba.append(" \t" + TopTen_nimet.get(i) + "  \t" + TopTen.get(i) + "\n");
+      kimba.append(""+(i+1) +". \t" + TopTen_nimet.get(i) + "  \t" + TopTen.get(i) + "\n");
     }
 
-    JOptionPane.showMessageDialog(null, kimba.toString(), "Hall of Fame", JOptionPane.INFORMATION_MESSAGE, palkinto);
+    JOptionPane.showMessageDialog(null, kimba.toString(), "HALL  OF  FAME", JOptionPane.INFORMATION_MESSAGE, palkinto);
   }
 
+ 
 }
