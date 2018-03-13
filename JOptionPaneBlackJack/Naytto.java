@@ -19,6 +19,7 @@ public class Naytto {
   ImageIcon iconA = new ImageIcon(Naytto.class.getResource("jc.gif"));
   ImageIcon iconB = new ImageIcon(Naytto.class.getResource("js.gif"));
   ImageIcon kassakone = new ImageIcon(Naytto.class.getResource("kassakone.gif"));
+  ImageIcon jakaja = new ImageIcon(Naytto.class.getResource("jakaja.png"));
 
   // metodi luo näytön, joka sisältää perusvalikon.
   public void aloitusNaytto() {
@@ -97,10 +98,20 @@ public class Naytto {
     // Parametrina näytettävä viesti
     JOptionPane.showMessageDialog(null, viesti, null, JOptionPane.PLAIN_MESSAGE, iconA);
   }
+  
+  public void naytaPelissa(String viesti) {
+    // Parametrina näytettävä viesti
+    JOptionPane.showMessageDialog(null, viesti, null, JOptionPane.PLAIN_MESSAGE, jakaja);
+  }
 
   public String kysyTieto(String kysymys) {
     // kysymys toimii parametrina, metodi palauttaa käyttäjän antaman vastauksen 
     return (String) JOptionPane.showInputDialog(null, kysymys, "",JOptionPane.INFORMATION_MESSAGE,iconB,null,"");
+  }
+  
+  public String kysyPelissa(String kysymys) {
+    // kysymys toimii parametrina, metodi palauttaa käyttäjän antaman vastauksen 
+    return (String) JOptionPane.showInputDialog(null, kysymys, null,JOptionPane.INFORMATION_MESSAGE,jakaja,null,"");
   }
 
   public int kassalla(String jotain) {
@@ -124,7 +135,7 @@ public class Naytto {
             null, //tähän mitä yläpalkis lukee
             JOptionPane.YES_NO_OPTION,
             JOptionPane.PLAIN_MESSAGE,
-            null, //tää liittyy kuvaan/ikoniin
+            jakaja, //tää liittyy kuvaan/ikoniin
             napit, //napit
             napit[0]);
   }

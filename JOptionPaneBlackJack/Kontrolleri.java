@@ -35,7 +35,7 @@ public class Kontrolleri {
 
     if (chipMaara > 0) {
       do {
-        vastaus = naytto.kysyTieto("Sinulla on " + chipMaara + " chippiä. \n"
+        vastaus = naytto.kysyPelissa("Sinulla on " + chipMaara + " chippiä. \n"
                 + "Syötä kuinka paljon haluat asettaa panokseksi.");
         if (vastaus == null) {
           naytto.aloitusNaytto();
@@ -61,7 +61,7 @@ public class Kontrolleri {
           jakaja.hit(pakka);
           if (jakaja.korttienPisteet() == 21) {
             chipit.lisaa(panos);
-            naytto.naytaViesti("Jakajan käsi: " + jakaja.toString()
+            naytto.naytaPelissa("Jakajan käsi: " + jakaja.toString()
                     + "\n Korttien arvo: " + jakaja.korttienPisteet()
                     + "\n\nPelaajan käsi: " + pelaaja.toString()
                     + "\n Korttien arvo: " + pelaaja.korttienPisteet()
@@ -69,7 +69,7 @@ public class Kontrolleri {
                     + "\nSait " + panos + " chippiäsi takaisin. ");
           } else {
             chipit.lisaa(panos * 4);
-            naytto.naytaViesti("Jakajan käsi: " + jakaja.toString()
+            naytto.naytaPelissa("Jakajan käsi: " + jakaja.toString()
                     + "\n Korttien arvo: " + jakaja.korttienPisteet()
                     + "\n\nPelaajan käsi: " + pelaaja.toString()
                     + "\n Korttien arvo: " + pelaaja.korttienPisteet()
@@ -97,7 +97,7 @@ public class Kontrolleri {
                   } while (jakaja.korttienPisteet() < 16);
                   if ((jakaja.korttienPisteet() > 21)) {
                     chipit.lisaa(panos * 2);
-                    naytto.naytaViesti("Jakajan käsi: " + jakaja.toString()
+                    naytto.naytaPelissa("Jakajan käsi: " + jakaja.toString()
                             + "\n Korttien arvo: " + jakaja.korttienPisteet()
                             + "\n\nPelaajan käsi: " + pelaaja.toString()
                             + "\n Korttien arvo: " + pelaaja.korttienPisteet()
@@ -105,14 +105,14 @@ public class Kontrolleri {
                             + "\nVoitit " + panos + " chippiä! ");
                   } else if (jakaja.korttienPisteet() == pelaaja.korttienPisteet()) {
                     chipit.lisaa(panos);
-                    naytto.naytaViesti("Jakajan käsi: " + jakaja.toString()
+                    naytto.naytaPelissa("Jakajan käsi: " + jakaja.toString()
                             + "\n Korttien arvo: " + jakaja.korttienPisteet()
                             + "\n\nPelaajan käsi: " + pelaaja.toString()
                             + "\n Korttien arvo: " + pelaaja.korttienPisteet()
                             + "\n\n\nKorttien arvot ovat samat: tasapeli!"
                             + "\nSait " + panos + " chippiäsi takaisin. ");
                   } else if (jakaja.korttienPisteet() > pelaaja.korttienPisteet()) {
-                    naytto.naytaViesti("Jakajan käsi: " + jakaja.toString()
+                    naytto.naytaPelissa("Jakajan käsi: " + jakaja.toString()
                             + "\n Korttien arvo: " + jakaja.korttienPisteet()
                             + "\n\nPelaajan käsi: " + pelaaja.toString()
                             + "\n Korttien arvo: " + pelaaja.korttienPisteet()
@@ -120,7 +120,7 @@ public class Kontrolleri {
                             + "\nMenetit " + panos + " chippiä.");
                   } else {
                     chipit.lisaa(panos * 2);
-                    naytto.naytaViesti("Jakajan käsi: " + jakaja.toString()
+                    naytto.naytaPelissa("Jakajan käsi: " + jakaja.toString()
                             + "\n Korttien arvo: " + jakaja.korttienPisteet()
                             + "\n\nPelaajan käsi: " + pelaaja.toString()
                             + "\n Korttien arvo: " + pelaaja.korttienPisteet()
@@ -129,7 +129,7 @@ public class Kontrolleri {
                   }
               }
             } else {
-              naytto.naytaViesti("Jakajan käsi: " + jakaja.toString()
+              naytto.naytaPelissa("Jakajan käsi: " + jakaja.toString()
                       + "\n Korttien arvo: " + jakaja.korttienPisteet()
                       + "\n\nPelaajan käsi: " + pelaaja.toString()
                       + "\n Korttien arvo: " + pelaaja.korttienPisteet()
@@ -142,10 +142,10 @@ public class Kontrolleri {
 
         }
       } else {
-        naytto.naytaViesti("Valitettavasti sinulla ei ole niin paljon chippejä. ");
+        naytto.naytaPelissa("Valitettavasti sinulla ei ole niin paljon chippejä. ");
       }
     } else {
-      naytto.naytaViesti("Valitettavasti sinulla ei ole yhtään chippejä. ");
+      naytto.naytaPelissa("Valitettavasti sinulla ei ole yhtään chippejä. ");
     }
 
     // peli päätyi, pyydetään näyttöä siirtymään aloitusnäyttöön
