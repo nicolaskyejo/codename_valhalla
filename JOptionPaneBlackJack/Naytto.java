@@ -13,8 +13,9 @@ public class Naytto {
     private final License license = new License();
     private final PelinSaannot saannot = new PelinSaannot();
 
+    ImageIcon iconA = new ImageIcon(Naytto.class.getResource("js.gif"));
     ImageIcon exit = new ImageIcon(Naytto.class.getResource("exit.png"));
-    ImageIcon iconB = new ImageIcon(Naytto.class.getResource("js.gif"));
+    ImageIcon kirjaus = new ImageIcon(Naytto.class.getResource("kirjaus.png"));
     ImageIcon kassakone = new ImageIcon(Naytto.class.getResource("kassakone.png"));
     ImageIcon jakaja = new ImageIcon(Naytto.class.getResource("jakaja.png"));
 
@@ -40,7 +41,7 @@ public class Naytto {
 
             // päävalikko
             valintaK = JOptionPane.showInputDialog(null, message,
-                    "B  L  A  C  K    J   A   C   K    21", JOptionPane.PLAIN_MESSAGE);
+                    "B  L  A  C  K  J  A  C  K    21", JOptionPane.PLAIN_MESSAGE);
             if (valintaK == null) {
                 valintaK = "6";
             } else if (valintaK.length() > 1) {
@@ -89,34 +90,39 @@ public class Naytto {
     // näytön toimintoja
     public void naytaViesti(String viesti) {
         // Parametrina näytettävä viesti
+        JOptionPane.showMessageDialog(null, viesti, "Tervetuloa uudestaan!", JOptionPane.PLAIN_MESSAGE, iconA);
+    }
+    
+    public void naytaExit(String viesti) {
+        // Parametrina näytettävä viesti
         JOptionPane.showMessageDialog(null, viesti, "Tervetuloa uudestaan!", JOptionPane.PLAIN_MESSAGE, exit);
     }
 
     //naytaViesti jakajan kuvalla
     public void naytaPelissa(String viesti) {
         // Parametrina näytettävä viesti
-        JOptionPane.showMessageDialog(null, viesti, null, JOptionPane.PLAIN_MESSAGE, jakaja);
+        JOptionPane.showMessageDialog(null, viesti, "Blackjack pöydässä", JOptionPane.PLAIN_MESSAGE, jakaja);
     }
 
     public void naytaKassa(String viesti) {
         // Parametrina näytettävä viesti
-        JOptionPane.showMessageDialog(null, viesti, null, JOptionPane.PLAIN_MESSAGE, kassakone);
+        JOptionPane.showMessageDialog(null, viesti, "Kassalla", JOptionPane.PLAIN_MESSAGE, kassakone);
     }
 
     public String kysyTieto(String kysymys) {
         // kysymys toimii parametrina, metodi palauttaa käyttäjän antaman vastauksen 
-        return (String) JOptionPane.showInputDialog(null, kysymys, "", JOptionPane.INFORMATION_MESSAGE, iconB, null, "");
+        return (String) JOptionPane.showInputDialog(null, kysymys, "Pääset Highscoreen!", JOptionPane.INFORMATION_MESSAGE, kirjaus, null, "");
     }
+    
     //kysyTieto jakajan kuvalla
-
     public String kysyPelissa(String kysymys) {
         // kysymys toimii parametrina, metodi palauttaa käyttäjän antaman vastauksen 
-        return (String) JOptionPane.showInputDialog(null, kysymys, null, JOptionPane.INFORMATION_MESSAGE, jakaja, null, "");
+        return (String) JOptionPane.showInputDialog(null, kysymys, "Blackjakc pöydässä", JOptionPane.INFORMATION_MESSAGE, jakaja, null, "");
     }
 
     public String kysyKassa(String kysymys) {
         // kysymys toimii parametrina, metodi palauttaa käyttäjän antaman vastauksen 
-        return (String) JOptionPane.showInputDialog(null, kysymys, null, JOptionPane.INFORMATION_MESSAGE, kassakone, null, "");
+        return (String) JOptionPane.showInputDialog(null, kysymys, "Kassalla", JOptionPane.INFORMATION_MESSAGE, kassakone, null, "");
     }
 
     public int kassalla(String jotain) {
@@ -137,7 +143,7 @@ public class Naytto {
 
         return JOptionPane.showOptionDialog(null,
                 viesti,
-                null, //tähän mitä yläpalkis lukee
+                "Blackjack pöydässä", //tähän mitä yläpalkis lukee
                 JOptionPane.YES_NO_OPTION,
                 JOptionPane.PLAIN_MESSAGE,
                 jakaja, //tää liittyy kuvaan/ikoniin

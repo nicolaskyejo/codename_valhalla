@@ -271,7 +271,7 @@ public class Kontrolleri {
             highscore.checkHighScore(score, nimi);  // katso onko score hyvä 
         }
 
-        naytto.naytaViesti("Poistut kasinolta taskussasi \n"
+        naytto.naytaExit("Poistut kasinolta taskussasi \n"
                 + rahaMaara + " euroa ja " + chipMaara + " chippiä.");
         highscore.showHighScore();       // näytä kaikki scoret  
         // tämä metodi lopettaa koko sovelluksen toiminnan.
