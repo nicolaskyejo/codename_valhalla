@@ -1,6 +1,5 @@
 package JOptionPaneBlackJack;
 
-import java.io.FileNotFoundException;
 
 public class Kontrolleri {
 
@@ -19,6 +18,7 @@ public class Kontrolleri {
     rahat = new Rahat(500);
     chipit = new Chipit(0);
     naytto = new Naytto();
+    
     // välitetään näytölle tieto sovelluksen kontrollerista eli
     // tämä komponentti itse (this).
     naytto.rekisteroiOhjain(this);
@@ -254,7 +254,7 @@ public class Kontrolleri {
     naytto.aloitusNaytto();
   }
 
-  public void lopetus() throws FileNotFoundException {
+  public void lopetus()  {
     int rahaMaara = rahat.getSaldo();
     int chipMaara = chipit.getSaldo();
 
@@ -262,7 +262,7 @@ public class Kontrolleri {
     highscore = new HighScore();
     highscore.initialize();
 
-    int score = rahaMaara +chipMaara;              // score formula
+    int score = rahaMaara + chipMaara;              // score formula
     if (score >= 510) {
       String nimi = naytto.kysyTieto("Mikä on sinun nimesi?");
 

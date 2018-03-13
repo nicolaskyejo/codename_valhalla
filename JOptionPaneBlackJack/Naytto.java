@@ -2,9 +2,6 @@ package JOptionPaneBlackJack;
 
 import java.awt.Color;
 import java.awt.Font;
-import java.io.FileNotFoundException;
-import java.util.logging.Level;
-import java.util.logging.Logger;
 import javax.swing.ImageIcon;
 import javax.swing.JLabel;
 import javax.swing.JOptionPane;
@@ -43,11 +40,11 @@ public class Naytto {
 
       // päävalikko
       valintaK = JOptionPane.showInputDialog(null, message,
-              "B  L  A  C  K    J A C K    21", JOptionPane.PLAIN_MESSAGE);
+              "B  L  A  C  K    J   A   C   K    21", JOptionPane.PLAIN_MESSAGE);
       if (valintaK == null) {
         valintaK = "6";
       } else if (valintaK.length() > 1) {
-          naytaViesti("Sinun pitää valita 1-6");
+          naytaViesti("Sinun pitää valita numero 1-6");
           valintaK = "0";
       }
     } while (valintaK.length() == 0);
@@ -81,13 +78,9 @@ public class Naytto {
           aloitusNaytto();
       }
 
-    } catch (Exception e) {
+    } catch (NumberFormatException e) {
 
-      try {
-        kontrolleri.lopetus();
-      } catch (FileNotFoundException ex) {
-        Logger.getLogger(Naytto.class.getName()).log(Level.SEVERE, null, ex);
-      }
+      kontrolleri.lopetus();
 
     }
 
