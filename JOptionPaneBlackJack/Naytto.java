@@ -90,7 +90,7 @@ public class Naytto {
     // näytön toimintoja
     public void naytaViesti(String viesti) {
         // Parametrina näytettävä viesti
-        JOptionPane.showMessageDialog(null, viesti, "Tervetuloa uudestaan!", JOptionPane.PLAIN_MESSAGE, iconA);
+        JOptionPane.showMessageDialog(null, viesti, "Taskut", JOptionPane.PLAIN_MESSAGE, iconA);
     }
     
     public void naytaExit(String viesti) {
