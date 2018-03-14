@@ -26,13 +26,13 @@ public class Naytto {
         int valinta;            // valinta numerona
 
         String msg = "<html><b><font size=80>🂫</font>Tervetuloa kasinolle pelaamaan BlackJackiä<font size=80>🃛</font></b><br>"
-                + "<i>Valitse toiminto <font color=#993d00>(1-6)</font> seuraavista:</i><br><br>"
-                + "<b>1:  Pelaa♣<br>"
-                + "2:  Tarkastele taskujasi<font color=#F11B2D>♥</font><br>"
-                + "3:  Kassa♠<br>"
-                + "4:  Peliohjeet<font color=#F11B2D>♦</font><br>"
-                + "5:  Lisenssi♣<br>"
-                + "6:  Poistu kasinolta<font color=#F11B2D>♥</font></b>"
+                + "<i>&emsp&emsp&emsp&emsp Valitse toiminto <font color=#993d00><b>(1-6)</b></font> seuraavista:</i><br><br>"
+                + "<b>&emsp&emsp&emsp&emsp&emsp&emsp 1:  <font color=#F11B2D>♦</font>Pelaa♣<br>"
+                + "&emsp&emsp&emsp&emsp&emsp&emsp 2:  ♠Tarkastele taskujasi<font color=#F11B2D>♥</font><br>"
+                + "&emsp&emsp&emsp&emsp&emsp&emsp 3:  <font color=#F11B2D>♥</font>Kassa♠<br>"
+                + "&emsp&emsp&emsp&emsp&emsp&emsp 4:  ♣Peliohjeet<font color=#F11B2D>♦</font><br>"
+                + "&emsp&emsp&emsp&emsp&emsp&emsp 5:  <font color=#F11B2D>♥</font>Lisenssi♣<br>"
+                + "&emsp&emsp&emsp&emsp&emsp&emsp 6:  ♠Poistu kasinolta<font color=#F11B2D>♥</font></b>"
                 + "</BODY > < / html >";
         JLabel message = new JLabel(msg);
         message.setFont(new Font("Verdana", Font.PLAIN, 16));
