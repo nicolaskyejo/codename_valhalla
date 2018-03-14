@@ -176,13 +176,15 @@ public class Kontrolleri {
 
     public void kassa() {
         String vastaus;
+        int valinta;
         // pyydetään Model-kerrokselta tietoa.
         int rahaMaara = rahat.getSaldo();
         int chipMaara = chipit.getSaldo();
-
-        if (naytto.kassalla("Sinulla on " + rahaMaara + " euroa ja " + chipMaara + " chippiä.\n"
+        valinta = naytto.kassalla("Sinulla on " + rahaMaara + " euroa ja " + chipMaara + " chippiä.\n"
                 + "Valitse, haluatko vaihtaa \n"
-                + "euroja chipeiksi vai chippejä euroiksi.\n") == 0) {
+                + "euroja chipeiksi vai chippejä euroiksi.\n");
+
+        if ( valinta == 0) {
             if (rahaMaara > 0) {
                 do {
                     vastaus = naytto.kysyKassa("Syötä, kuinka paljon haluat \n"
@@ -216,7 +218,7 @@ public class Kontrolleri {
             } else {
                 naytto.naytaKassa("Valitettavasti sinulla ei ole yhtään rahaa. ");
             }
-        } else {
+        } else if (valinta == 1){
             if (chipMaara > 0) {
                 do {
                     vastaus = naytto.kysyKassa("Syötä, kuinka paljon haluat \n"
@@ -250,6 +252,9 @@ public class Kontrolleri {
             } else {
                 naytto.naytaKassa("Valitettavasti sinulla ei ole yhtään chippejä. ");
             }
+        } else {
+             // siirrytään aloitusnäyttöön käytettään "X"
+        naytto.aloitusNaytto();
         }
 
         // siirrytään aloitusnäyttöön
