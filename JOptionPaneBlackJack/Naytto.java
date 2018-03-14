@@ -42,60 +42,57 @@ public class Naytto {
 
             // päävalikko
             valintaK = JOptionPane.showInputDialog(null, message,
-                    "B  L  A  C  K  J  A  C  K    21", JOptionPane.PLAIN_MESSAGE);
+                    "B  L  A  C  K  J  A  C  K    2 1", JOptionPane.PLAIN_MESSAGE);
             if (valintaK == null) {
                 valintaK = "6";
             } else if (valintaK.length() > 0) {
-                    try {
-                        if (Integer.parseInt(valintaK) > 0 &&
-                                Integer.parseInt(valintaK) <= 6) {
-                            //OK
-                        } else {
-                            naytaViesti("Sinun pitää valita numero 1-6");
-                            valintaK = "0";
-                        }
-                    } catch (Exception e) {
+                try {
+                    if (Integer.parseInt(valintaK) > 0
+                            && Integer.parseInt(valintaK) <= 6) {
+                        //OK
+                    } else {
                         naytaViesti("Sinun pitää valita numero 1-6");
                         valintaK = "0";
                     }
+                } catch (Exception e) {
+                    naytaViesti("Sinun pitää valita numero 1-6");
+                    valintaK = "0";
+                }
             }
         } while (valintaK.length() == 0);
         //try {
-            // käyttäjän antama vastaus muutetaan numeroksi
-            valinta = Integer.parseInt(valintaK);
+        // käyttäjän antama vastaus muutetaan numeroksi
+        valinta = Integer.parseInt(valintaK);
 
-            // ilmoitetaan kontrollerille käyttäjän valitsema toiminto
-            switch (valinta) {
-                case 1:
-                    kontrolleri.pelaa();
-                    break;
-                case 2:
-                    kontrolleri.saldo();
-                    break;
-                case 3:
-                    kontrolleri.kassa();
-                    break;
-                case 4:
-                    saannot.kerrosaannot();
-                    aloitusNaytto();
-                    break;
-                case 5:
-                    license.LicenseInfo();
-                    aloitusNaytto();
-                    break;
-                case 6:
-                    kontrolleri.lopetus();
-                    break;
-                default:
-                    aloitusNaytto();
-            }
+        // ilmoitetaan kontrollerille käyttäjän valitsema toiminto
+        switch (valinta) {
+            case 1:
+                kontrolleri.pelaa();
+                break;
+            case 2:
+                kontrolleri.saldo();
+                break;
+            case 3:
+                kontrolleri.kassa();
+                break;
+            case 4:
+                saannot.kerrosaannot();
+                aloitusNaytto();
+                break;
+            case 5:
+                license.LicenseInfo();
+                aloitusNaytto();
+                break;
+            case 6:
+                kontrolleri.lopetus();
+                break;
+            default:
+                aloitusNaytto();
+        }
 
         //} catch (NumberFormatException e) {
-
         //    kontrolleri.lopetus();
-
         //}
-
     }
 
     // näytön toimintoja
@@ -103,12 +100,12 @@ public class Naytto {
         // Parametrina näytettävä viesti
         JOptionPane.showMessageDialog(null, viesti, "Taskut", JOptionPane.PLAIN_MESSAGE, iconA);
     }
-    
+
     public void naytaTasku(String viesti) {
         // Parametrina näytettävä viesti
         JOptionPane.showMessageDialog(null, viesti, "Taskut", JOptionPane.PLAIN_MESSAGE, tasku);
     }
-    
+
     public void naytaExit(String viesti) {
         // Parametrina näytettävä viesti
         JOptionPane.showMessageDialog(null, viesti, "Tervetuloa uudestaan!", JOptionPane.PLAIN_MESSAGE, exit);
@@ -129,7 +126,7 @@ public class Naytto {
         // kysymys toimii parametrina, metodi palauttaa käyttäjän antaman vastauksen 
         return (String) JOptionPane.showInputDialog(null, kysymys, "Pääset Highscoreen!", JOptionPane.INFORMATION_MESSAGE, kirjaus, null, "");
     }
-    
+
     //kysyTieto jakajan kuvalla
     public String kysyPelissa(String kysymys) {
         // kysymys toimii parametrina, metodi palauttaa käyttäjän antaman vastauksen 

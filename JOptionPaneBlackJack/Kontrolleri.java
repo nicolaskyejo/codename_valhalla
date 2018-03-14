@@ -41,13 +41,13 @@ public class Kontrolleri {
                 } else if (vastaus.length() > 0) {
                     try {
                         if (Integer.parseInt(vastaus) < 0) {
-                            naytto.naytaPelissa("Ei voi olla negatiivinen määrä.");
+                            naytto.naytaPelissa("Panos ei voi olla negatiivinen");
                             vastaus = "";
                         } else if (Integer.parseInt(vastaus) > 0) {
                             //OK
                         }
                     } catch (Exception e) {
-                        naytto.naytaPelissa("Muoto virhe. Teksti ei sopii. Käyttä numerot.");
+                        naytto.naytaPelissa("Sinun pitää kirjoittaa panos numeroina. ");
                         vastaus = "";
                     }
                 }
