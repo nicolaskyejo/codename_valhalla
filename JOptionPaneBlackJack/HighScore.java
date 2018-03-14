@@ -56,6 +56,7 @@ public class HighScore {
 
     public void showHighScore() {
         StringBuilder kimba = new StringBuilder();        // helps to save all string output to one "string"
+        kimba.append("Top 10 Scores\n");
         for (int i = 0; i < 10; i++) {
             kimba.append("" + (i + 1) + ". \t" + TopTen_nimet.get(i) + "  \t" + TopTen.get(i) + "\n");
         }
