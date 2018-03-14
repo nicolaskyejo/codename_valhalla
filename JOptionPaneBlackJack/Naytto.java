@@ -45,12 +45,22 @@ public class Naytto {
                     "B  L  A  C  K  J  A  C  K    21", JOptionPane.PLAIN_MESSAGE);
             if (valintaK == null) {
                 valintaK = "6";
-            } else if (valintaK.length() > 1) {
-                naytaViesti("Sinun pitää valita numero 1-6");
-                valintaK = "0";
+            } else if (valintaK.length() > 0) {
+                    try {
+                        if (Integer.parseInt(valintaK) > 0 &&
+                                Integer.parseInt(valintaK) <= 6) {
+                            //OK
+                        } else {
+                            naytaViesti("Sinun pitää valita numero 1-6");
+                            valintaK = "0";
+                        }
+                    } catch (Exception e) {
+                        naytaViesti("Sinun pitää valita numero 1-6");
+                        valintaK = "0";
+                    }
             }
         } while (valintaK.length() == 0);
-        try {
+        //try {
             // käyttäjän antama vastaus muutetaan numeroksi
             valinta = Integer.parseInt(valintaK);
 
@@ -80,11 +90,11 @@ public class Naytto {
                     aloitusNaytto();
             }
 
-        } catch (NumberFormatException e) {
+        //} catch (NumberFormatException e) {
 
-            kontrolleri.lopetus();
+        //    kontrolleri.lopetus();
 
-        }
+        //}
 
     }
 
