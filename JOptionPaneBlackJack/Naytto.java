@@ -130,7 +130,7 @@ public class Naytto {
     //kysyTieto jakajan kuvalla
     public String kysyPelissa(String kysymys) {
         // kysymys toimii parametrina, metodi palauttaa käyttäjän antaman vastauksen 
-        return (String) JOptionPane.showInputDialog(null, kysymys, "Blackjakc pöydässä", JOptionPane.INFORMATION_MESSAGE, jakaja, null, "");
+        return (String) JOptionPane.showInputDialog(null, kysymys, "Blackjack pöydässä", JOptionPane.INFORMATION_MESSAGE, jakaja, null, "");
     }
 
     public String kysyKassa(String kysymys) {

@@ -51,110 +51,107 @@ public class Kontrolleri {
                         vastaus = "";
                     }
                 }
-            } while (vastaus.length() == 0);
+            } while (vastaus.length() == 0 || Integer.parseInt(vastaus) > chipMaara);
             int panos = Integer.parseInt(vastaus);
 
-            if (panos <= chipMaara) {
-                chipit.vahenna(panos);
+            chipit.vahenna(panos);
 
-                pakka = new Pakka();
-                pakka.taysPakka();
-                pakka.sekoita();
+            pakka = new Pakka();
+            pakka.taysPakka();
+            pakka.sekoita();
 
-                jakaja = new Pakka();
+            jakaja = new Pakka();
+            jakaja.hit(pakka);
+
+            pelaaja = new Pakka();
+            pelaaja.hit(pakka);
+            pelaaja.hit(pakka);
+
+            if (pelaaja.korttienPisteet() == 21) {
                 jakaja.hit(pakka);
-
-                pelaaja = new Pakka();
-                pelaaja.hit(pakka);
-                pelaaja.hit(pakka);
-
-                if (pelaaja.korttienPisteet() == 21) {
-                    jakaja.hit(pakka);
-                    if (jakaja.korttienPisteet() == 21) {
-                        chipit.lisaa(panos);
-                        naytto.naytaPelissa("Jakajan käsi: " + jakaja.toString()
-                                + "\n Korttien arvo: " + jakaja.korttienPisteet()
-                                + "\n\nPelaajan käsi: " + pelaaja.toString()
-                                + "\n Korttien arvo: " + pelaaja.korttienPisteet()
-                                + "\n\n\nSekä pelaaja että jakaja saivat BlackJackin: tasapeli!"
-                                + "\nSait " + panos + " chippiäsi takaisin. ");
-                    } else {
-                        chipit.lisaa(panos * 4);
-                        naytto.naytaPelissa("Jakajan käsi: " + jakaja.toString()
-                                + "\n Korttien arvo: " + jakaja.korttienPisteet()
-                                + "\n\nPelaajan käsi: " + pelaaja.toString()
-                                + "\n Korttien arvo: " + pelaaja.korttienPisteet()
-                                + "\n\n\nSait BlackJackin!"
-                                + "\nVoitit panoksesi kolminkertaisena: " + panos * 3 + " chippiä!");
-                    }
+                if (jakaja.korttienPisteet() == 21) {
+                    chipit.lisaa(panos);
+                    naytto.naytaPelissa("Jakajan käsi: " + jakaja.toString()
+                            + "\n Korttien arvo: " + jakaja.korttienPisteet()
+                            + "\n\nPelaajan käsi: " + pelaaja.toString()
+                            + "\n Korttien arvo: " + pelaaja.korttienPisteet()
+                            + "\n\n\nSekä pelaaja että jakaja saivat BlackJackin: tasapeli!"
+                            + "\nSait " + panos + " chippiäsi takaisin. ");
                 } else {
-                    do {
-                        if (pelaaja.korttienPisteet() <= 21) {
-                            valinta = naytto.otatkoKortin("Jakajan käsi: " + jakaja.toString()
-                                    + "\n Korttien arvo: " + jakaja.korttienPisteet()
-                                    + "\n\nPelaajan käsi: " + pelaaja.toString()
-                                    + "\n Korttien arvo: " + pelaaja.korttienPisteet()
-                                    + "\n\n\nHaluatko ottaa ottaa kortin lisää "
-                                    + "\nvai jäädä nykyisiin kortteihin? ");
-
-                            switch (valinta) {
-                                case 0:
-                                    pelaaja.hit(pakka);
-                                    break;
-                                case 1:
-
-                                    do {
-                                        jakaja.hit(pakka);
-                                    } while (jakaja.korttienPisteet() < 16);
-                                    if ((jakaja.korttienPisteet() > 21)) {
-                                        chipit.lisaa(panos * 2);
-                                        naytto.naytaPelissa("Jakajan käsi: " + jakaja.toString()
-                                                + "\n Korttien arvo: " + jakaja.korttienPisteet()
-                                                + "\n\nPelaajan käsi: " + pelaaja.toString()
-                                                + "\n Korttien arvo: " + pelaaja.korttienPisteet()
-                                                + "\n\n\nJakajan korttien arvo ylitti 21. "
-                                                + "\nVoitit " + panos + " chippiä! ");
-                                    } else if (jakaja.korttienPisteet() == pelaaja.korttienPisteet()) {
-                                        chipit.lisaa(panos);
-                                        naytto.naytaPelissa("Jakajan käsi: " + jakaja.toString()
-                                                + "\n Korttien arvo: " + jakaja.korttienPisteet()
-                                                + "\n\nPelaajan käsi: " + pelaaja.toString()
-                                                + "\n Korttien arvo: " + pelaaja.korttienPisteet()
-                                                + "\n\n\nKorttien arvot ovat samat: tasapeli!"
-                                                + "\nSait " + panos + " chippiäsi takaisin. ");
-                                    } else if (jakaja.korttienPisteet() > pelaaja.korttienPisteet()) {
-                                        naytto.naytaPelissa("Jakajan käsi: " + jakaja.toString()
-                                                + "\n Korttien arvo: " + jakaja.korttienPisteet()
-                                                + "\n\nPelaajan käsi: " + pelaaja.toString()
-                                                + "\n Korttien arvo: " + pelaaja.korttienPisteet()
-                                                + "\n\n\nJakajan korttien arvo on suurempi, hävisit pelin. "
-                                                + "\nMenetit " + panos + " chippiä.");
-                                    } else {
-                                        chipit.lisaa(panos * 2);
-                                        naytto.naytaPelissa("Jakajan käsi: " + jakaja.toString()
-                                                + "\n Korttien arvo: " + jakaja.korttienPisteet()
-                                                + "\n\nPelaajan käsi: " + pelaaja.toString()
-                                                + "\n Korttien arvo: " + pelaaja.korttienPisteet()
-                                                + "\n\n\nKorttiesi arvo on suurempi, kuin jakajan. "
-                                                + "\nVoitit " + panos + " chippiä.");
-                                    }
-                            }
-                        } else {
-                            naytto.naytaPelissa("Jakajan käsi: " + jakaja.toString()
-                                    + "\n Korttien arvo: " + jakaja.korttienPisteet()
-                                    + "\n\nPelaajan käsi: " + pelaaja.toString()
-                                    + "\n Korttien arvo: " + pelaaja.korttienPisteet()
-                                    + "\n\n\nKorttiesi arvo ylitti 21, hävisit pelin. "
-                                    + "\nMenetit " + panos + " chippiä.");
-                            valinta++;
-                        }
-
-                    } while (valinta == 0);
-
+                    chipit.lisaa(panos * 4);
+                    naytto.naytaPelissa("Jakajan käsi: " + jakaja.toString()
+                            + "\n Korttien arvo: " + jakaja.korttienPisteet()
+                            + "\n\nPelaajan käsi: " + pelaaja.toString()
+                            + "\n Korttien arvo: " + pelaaja.korttienPisteet()
+                            + "\n\n\nSait BlackJackin!"
+                            + "\nVoitit panoksesi kolminkertaisena: " + panos * 3 + " chippiä!");
                 }
             } else {
-                naytto.naytaPelissa("Valitettavasti sinulla ei ole niin paljon chippejä. ");
+                do {
+                    if (pelaaja.korttienPisteet() <= 21) {
+                        valinta = naytto.otatkoKortin("Jakajan käsi: " + jakaja.toString()
+                                + "\n Korttien arvo: " + jakaja.korttienPisteet()
+                                + "\n\nPelaajan käsi: " + pelaaja.toString()
+                                + "\n Korttien arvo: " + pelaaja.korttienPisteet()
+                                + "\n\n\nHaluatko ottaa ottaa kortin lisää "
+                                + "\nvai jäädä nykyisiin kortteihin? ");
+
+                        switch (valinta) {
+                            case 0:
+                                pelaaja.hit(pakka);
+                                break;
+                            case 1:
+
+                                do {
+                                    jakaja.hit(pakka);
+                                } while (jakaja.korttienPisteet() < 16);
+                                if ((jakaja.korttienPisteet() > 21)) {
+                                    chipit.lisaa(panos * 2);
+                                    naytto.naytaPelissa("Jakajan käsi: " + jakaja.toString()
+                                            + "\n Korttien arvo: " + jakaja.korttienPisteet()
+                                            + "\n\nPelaajan käsi: " + pelaaja.toString()
+                                            + "\n Korttien arvo: " + pelaaja.korttienPisteet()
+                                            + "\n\n\nJakajan korttien arvo ylitti 21. "
+                                            + "\nVoitit " + panos + " chippiä! ");
+                                } else if (jakaja.korttienPisteet() == pelaaja.korttienPisteet()) {
+                                    chipit.lisaa(panos);
+                                    naytto.naytaPelissa("Jakajan käsi: " + jakaja.toString()
+                                            + "\n Korttien arvo: " + jakaja.korttienPisteet()
+                                            + "\n\nPelaajan käsi: " + pelaaja.toString()
+                                            + "\n Korttien arvo: " + pelaaja.korttienPisteet()
+                                            + "\n\n\nKorttien arvot ovat samat: tasapeli!"
+                                            + "\nSait " + panos + " chippiäsi takaisin. ");
+                                } else if (jakaja.korttienPisteet() > pelaaja.korttienPisteet()) {
+                                    naytto.naytaPelissa("Jakajan käsi: " + jakaja.toString()
+                                            + "\n Korttien arvo: " + jakaja.korttienPisteet()
+                                            + "\n\nPelaajan käsi: " + pelaaja.toString()
+                                            + "\n Korttien arvo: " + pelaaja.korttienPisteet()
+                                            + "\n\n\nJakajan korttien arvo on suurempi, hävisit pelin. "
+                                            + "\nMenetit " + panos + " chippiä.");
+                                } else {
+                                    chipit.lisaa(panos * 2);
+                                    naytto.naytaPelissa("Jakajan käsi: " + jakaja.toString()
+                                            + "\n Korttien arvo: " + jakaja.korttienPisteet()
+                                            + "\n\nPelaajan käsi: " + pelaaja.toString()
+                                            + "\n Korttien arvo: " + pelaaja.korttienPisteet()
+                                            + "\n\n\nKorttiesi arvo on suurempi, kuin jakajan. "
+                                            + "\nVoitit " + panos + " chippiä.");
+                                }
+                        }
+                    } else {
+                        naytto.naytaPelissa("Jakajan käsi: " + jakaja.toString()
+                                + "\n Korttien arvo: " + jakaja.korttienPisteet()
+                                + "\n\nPelaajan käsi: " + pelaaja.toString()
+                                + "\n Korttien arvo: " + pelaaja.korttienPisteet()
+                                + "\n\n\nKorttiesi arvo ylitti 21, hävisit pelin. "
+                                + "\nMenetit " + panos + " chippiä.");
+                        valinta++;
+                    }
+
+                } while (valinta == 0);
+
             }
+
         } else {
             naytto.naytaPelissa("Valitettavasti sinulla ei ole yhtään chippejä. ");
         }
@@ -184,77 +181,75 @@ public class Kontrolleri {
                 + "Valitse, haluatko vaihtaa \n"
                 + "euroja chipeiksi vai chippejä euroiksi.\n");
 
-        if ( valinta == 0) {
-            if (rahaMaara > 0) {
-                do {
-                    vastaus = naytto.kysyKassa("Syötä, kuinka paljon haluat \n"
-                            + "muuttaa rahojasi chipeiksi.\n"
-                            + "Sinulla on " + rahaMaara + " euroa");
-                    if (vastaus == null) {
-                        naytto.aloitusNaytto();
-                    } else if (vastaus.length() > 0) {
-                        try {
-                            if (Integer.parseInt(vastaus) < 0) {
-                                naytto.naytaKassa("Syöttämäsi luvun täytyy olla positiivinen. ");
+        switch (valinta) {
+            case 0:
+                if (rahaMaara > 0) {
+                    do {
+                        vastaus = naytto.kysyKassa("Syötä, kuinka paljon haluat \n"
+                                + "muuttaa rahojasi chipeiksi.\n"
+                                + "Sinulla on " + rahaMaara + " euroa");
+                        if (vastaus == null) {
+                            naytto.aloitusNaytto();
+                        } else if (vastaus.length() > 0) {
+                            try {
+                                if (Integer.parseInt(vastaus) < 0) {
+                                    naytto.naytaKassa("Syöttämäsi luvun täytyy olla positiivinen. ");
+                                    vastaus = "";
+                                } else if (Integer.parseInt(vastaus) > 0) {
+                                    //OK
+                                }
+                            } catch (Exception e) {
+                                naytto.naytaKassa("Sinun pitää kirjoittaa luku numeroina. ");
                                 vastaus = "";
-                            } else if (Integer.parseInt(vastaus) > 0) {
-                                //OK
                             }
-                        } catch (Exception e) {
-                            naytto.naytaKassa("Sinun pitää kirjoittaa luku numeroina. ");
-                            vastaus = "";
                         }
-                    }
-                } while (vastaus.length() == 0);
-                int rahamuunnos = Integer.parseInt(vastaus);
+                    } while (vastaus.length() == 0 || Integer.parseInt(vastaus) > rahaMaara);
+                    int rahamuunnos = Integer.parseInt(vastaus);
 
-                if (rahamuunnos <= rahaMaara) {
                     rahat.vahenna(rahamuunnos);
                     chipit.lisaa(rahamuunnos);
                     naytto.naytaKassa("Muunnos onnistui. ");
-                } else {
-                    naytto.naytaKassa("Valitettavasti sinulla ei ole tarpeeksi rahaa. ");
-                }
-            } else {
-                naytto.naytaKassa("Valitettavasti sinulla ei ole yhtään rahaa. ");
-            }
-        } else if (valinta == 1){
-            if (chipMaara > 0) {
-                do {
-                    vastaus = naytto.kysyKassa("Syötä, kuinka paljon haluat \n"
-                            + "muuttaa chippejäsi euroiksi.\n"
-                            + "Sinulla on " + chipMaara + " chippiä.");
-                    if (vastaus == null) {
-                        naytto.aloitusNaytto();
-                    } else if (vastaus.length() > 0) {
-                        try {
-                            if (Integer.parseInt(vastaus) < 0) {
-                                naytto.naytaKassa("Syöttämäsi luvun täytyy olla positiivinen. ");
-                                vastaus = "";
-                            } else if (Integer.parseInt(vastaus) > 0) {
-                                //OK
-                            }
-                        } catch (Exception e) {
-                            naytto.naytaKassa("Sinun pitää kirjoittaa luku numeroina. ");
-                            vastaus = "";
-                        }
-                    }
-                } while (vastaus.length() == 0);
-                int chipmuunnos = Integer.parseInt(vastaus);
 
-                if (chipmuunnos <= chipMaara) {
+                } else {
+                    naytto.naytaKassa("Valitettavasti sinulla ei ole yhtään rahaa. ");
+                }
+                break;
+            case 1:
+                if (chipMaara > 0) {
+                    do {
+                        vastaus = naytto.kysyKassa("Syötä, kuinka paljon haluat \n"
+                                + "muuttaa chippejäsi euroiksi.\n"
+                                + "Sinulla on " + chipMaara + " chippiä.");
+                        if (vastaus == null) {
+                            naytto.aloitusNaytto();
+                        } else if (vastaus.length() > 0) {
+                            try {
+                                if (Integer.parseInt(vastaus) < 0) {
+                                    naytto.naytaKassa("Syöttämäsi luvun täytyy olla positiivinen. ");
+                                    vastaus = "";
+                                } else if (Integer.parseInt(vastaus) > 0) {
+                                    //OK
+                                }
+                            } catch (Exception e) {
+                                naytto.naytaKassa("Sinun pitää kirjoittaa luku numeroina. ");
+                                vastaus = "";
+                            }
+                        }
+                    } while (vastaus.length() == 0 || Integer.parseInt(vastaus) > chipMaara);
+                    int chipmuunnos = Integer.parseInt(vastaus);
+
                     chipit.vahenna(chipmuunnos);
                     rahat.lisaa(chipmuunnos);
                     naytto.naytaKassa("Muunnos onnistui. ");
+
                 } else {
-                    naytto.naytaKassa("Valitettavasti sinulla ei ole tarpeeksi chippejä. ");
+                    naytto.naytaKassa("Valitettavasti sinulla ei ole yhtään chippejä. ");
                 }
-            } else {
-                naytto.naytaKassa("Valitettavasti sinulla ei ole yhtään chippejä. ");
-            }
-        } else {
-             // siirrytään aloitusnäyttöön käytettään "X"
-        naytto.aloitusNaytto();
+                break;
+            default:
+                // siirrytään aloitusnäyttöön käytettään "X"
+                naytto.aloitusNaytto();
+                break;
         }
 
         // siirrytään aloitusnäyttöön
