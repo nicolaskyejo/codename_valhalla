@@ -169,7 +169,7 @@ public class Kontrolleri {
         int rahaMaara = rahat.getSaldo();
         int chipMaara = chipit.getSaldo();
         // pyydetään näyttöä esittämään saatu tieto
-        naytto.naytaViesti("Sinulla on " + rahaMaara + " euroa ja " + chipMaara + " chippiä.");
+        naytto.naytaTasku("Sinulla on " + rahaMaara + " euroa ja " + chipMaara + " chippiä.");
         // pyydetään näyttöä esittämään aloitusnäyttö
         naytto.aloitusNaytto();
     }

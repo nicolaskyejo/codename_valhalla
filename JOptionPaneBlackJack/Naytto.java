@@ -14,6 +14,7 @@ public class Naytto {
     private final PelinSaannot saannot = new PelinSaannot();
 
     ImageIcon iconA = new ImageIcon(Naytto.class.getResource("js.gif"));
+    ImageIcon tasku = new ImageIcon(Naytto.class.getResource("tasku.png"));
     ImageIcon exit = new ImageIcon(Naytto.class.getResource("exit.png"));
     ImageIcon kirjaus = new ImageIcon(Naytto.class.getResource("kirjaus.png"));
     ImageIcon kassakone = new ImageIcon(Naytto.class.getResource("kassakone.png"));
@@ -91,6 +92,11 @@ public class Naytto {
     public void naytaViesti(String viesti) {
         // Parametrina näytettävä viesti
         JOptionPane.showMessageDialog(null, viesti, "Taskut", JOptionPane.PLAIN_MESSAGE, iconA);
+    }
+    
+    public void naytaTasku(String viesti) {
+        // Parametrina näytettävä viesti
+        JOptionPane.showMessageDialog(null, viesti, "Taskut", JOptionPane.PLAIN_MESSAGE, tasku);
     }
     
     public void naytaExit(String viesti) {
