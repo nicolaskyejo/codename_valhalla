@@ -1,3 +1,6 @@
-# codename_valhalla
+### Simple blackjack game
 
-Java school project written in Java. Includes only source files.
+School project written in Java.
+
+Requires Java 8+ SDK.
+Does not have external dependencies. 
